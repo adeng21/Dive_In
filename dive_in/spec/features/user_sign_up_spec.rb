@@ -1,6 +1,10 @@
 require 'spec_helper'
 
-feature 'user registration' do
+feature 'user registration', %Q{
+    As an unauthenticated user
+    I want to sign up
+    So I can contribute to the site
+  } do
 
   before :each do
     @user = FactoryGirl.build(:user)
