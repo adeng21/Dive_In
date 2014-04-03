@@ -15,14 +15,17 @@
 
 <%= render 'layouts/messages'%>
 
-
-    <%if user_signed_in?%>
-      <%= link_to 'Sign out', destroy_user_session_path,  method: :delete %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-      <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
-
+    <ul>
+      <%if user_signed_in?%>
+        <li><%= link_to 'Sign out', destroy_user_session_path,  method: :delete %></li>
+        <%if current_user.is_admin? %>
+          <li><%= link_to 'Admin Section', admin_homes_path %></li>
+        <% end %>
+      <% else %>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end %>
+    </ul>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
