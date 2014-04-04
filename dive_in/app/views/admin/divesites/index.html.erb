@@ -1,0 +1,15 @@
+<h1> List of Top Divesites in the World</h1>
+
+<%= form_tag destroy_multiple_admin_divesites_path, method: :delete do %>
+
+  <%@divesites.each do |site| %>
+    <li>
+      <%= check_box_tag "site_id[]", site.id %>
+      <%= site.name %>
+    </li>
+  <%end%>
+  <%= submit_tag "Delete Selected Divesites", data: {confirm: "Are you sure?"}%>
+<%end%>
+
+
+

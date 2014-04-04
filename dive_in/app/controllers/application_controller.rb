@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-
+  def authorize_user
+    unless user_signed_in? and current_user.is_admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
 
 
 

@@ -6,8 +6,12 @@ DiveIn::Application.routes.draw do
   resources :divesites, only:[:index, :show]
 
   namespace :admin do
-    resources :divesites, only:[:new, :create]
-    resources :homes
+    resources :divesites do
+      collection do
+        delete 'destroy_multiple'
+      end
+    end
+    resources :homes, only:[:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

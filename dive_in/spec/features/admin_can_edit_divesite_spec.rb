@@ -12,10 +12,14 @@ feature 'add/delete/edit a divesite to the site', %Q{
   #An admin can edit the attributes of an existing divesite
   #A standard user cannot add, remove, or edit a divesite
 
-  scenario 'an admin adds a new divesite' do
+  before :each do
     user = FactoryGirl.create(:user, role: 'admin')
     sign_in_as(user)
     click_on 'Admin Section'
+  end
+
+  scenario 'an admin adds a new divesite' do
+
     click_on 'Add New Divesite'
     fill_in 'Name', with: 'Barracuda Point'
     fill_in 'Region', with: "Sipadan Island, Sabah"
@@ -34,7 +38,17 @@ feature 'add/delete/edit a divesite to the site', %Q{
     expect(current_path).to eql(admin_homes_path)
   end
 
-  scenario 'an admin removes an existing divesite'
+  scenario 'an admin removes multiple existing divesites' do
+    divesite = FactoryGirl.create(:divesite)
+    divesite2 = FactoryGirl.create(:divesite, name: 'Sipadan')
+    click_on 'List of Existing Divesites'
+    find(:css, "#site_id_[value='#{divesite.id}']").set(true)
+    find(:css, "#site_id_[value='#{divesite2.id}']").set(true)
+    click_on 'Delete Selected Divesites'
+
+    expect(page).to_not have_content(divesite.name, divesite2.name)
+    expect(page).to have_content("Divesite(s) Successfully Deleted")
+  end
 
   scenario 'ad admin edits an existing divesite'
 
