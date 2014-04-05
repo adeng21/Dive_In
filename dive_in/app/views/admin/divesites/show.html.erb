@@ -46,4 +46,5 @@
 </p>
 
 <li><%= link_to "Edit Information", edit_admin_divesite_path(@divesite) %></li>
+<li><%= link_to "Remove Divesite", admin_divesite_path(@divesite), method: :delete, data: {confirm: "Are you sure?"}%></li>
 <li><%= link_to "Back to Divesites List", admin_divesites_path %></li>

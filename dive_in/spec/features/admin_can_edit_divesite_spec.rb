@@ -50,6 +50,17 @@ feature 'add/delete/edit a divesite to the site', %Q{
     expect(page).to have_content("Divesite(s) Successfully Deleted")
   end
 
+  scenario 'an admin deletes a single existing divesite' do
+    divesite = FactoryGirl.create(:divesite)
+    click_on 'List of Existing Divesites'
+    click_on "#{divesite.name}"
+    click_on 'Remove Divesite'
+
+    expect(page).to have_content("Divesite Successfully Removed")
+    expect(current_path).to eql(admin_divesites_path)
+    expect(page).to_not have_content("#{divesite.name}")
+  end
+
   scenario 'ad admin edits an existing divesite' do
     divesite = FactoryGirl.create(:divesite)
     click_on 'List of Existing Divesites'
@@ -62,7 +73,5 @@ feature 'add/delete/edit a divesite to the site', %Q{
     expect(page).to have_content("San Pedro")
 
   end
-
-  scenario 'a standard user does not have access to any of the add/edit/remove functions'
 
 end

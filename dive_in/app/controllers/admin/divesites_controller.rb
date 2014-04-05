@@ -40,6 +40,13 @@ module Admin
       end
     end
 
+    def destroy
+      @divesite = Divesite.find(params[:id])
+      @divesite.destroy
+        redirect_to admin_divesites_path,
+        notice: "Divesite Successfully Removed"
+    end
+
     def destroy_multiple
       Divesite.where(id: params[:site_id]).destroy_all
         redirect_to admin_divesites_path,

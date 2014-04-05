@@ -14,5 +14,6 @@ describe 'admin checks' do
 
   it 'is an admin if the role is admin' do
     user = FactoryGirl.build(:user, role: 'admin')
+    expect(user.is_admin?).to be_true
   end
 end
