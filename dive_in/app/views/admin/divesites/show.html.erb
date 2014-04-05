@@ -1,0 +1,49 @@
+<h1><%= @divesite.name %></h1>
+
+<p>
+  <strong>Region:</strong>
+  <%= @divesite.region %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @divesite.country %>
+</p>
+
+<p>
+  <strong>Overall Rating:</strong>
+  <%= @divesite.rating %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @divesite.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @divesite.longitude %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @divesite.description %>
+</p>
+
+<p>
+  <strong>Surrounding Area:</strong>
+  <%= @divesite.surrounding_area %>
+</p>
+
+<p>
+  <strong>Average Water Temperature:</strong>
+  <%= @divesite.water_temperature %>
+</p>
+
+<p>
+  <strong>Average Visibility:</strong>
+  <%= @divesite.visibility %>
+</p>
+
+<li><%= link_to "Edit Information", edit_admin_divesite_path(@divesite) %></li>
+<li><%= link_to "Back to Divesites List", admin_divesites_path %></li>

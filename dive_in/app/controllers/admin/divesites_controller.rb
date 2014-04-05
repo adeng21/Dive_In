@@ -22,10 +22,28 @@ module Admin
       @divesites = Divesite.all
     end
 
+    def show
+      @divesite = Divesite.find(params[:id])
+    end
+
+    def edit
+      @divesite = Divesite.find(params[:id])
+    end
+
+    def update
+      @divesite = Divesite.find(params[:id])
+      if @divesite.update(divesite_params)
+        redirect_to admin_divesite_path(@divesite),
+        notice: "Divesite Successfully Updated!"
+      else
+        render action: 'edit'
+      end
+    end
+
     def destroy_multiple
-      Divesite.where(:id => params[:site_id]).destroy_all
-      redirect_to admin_divesites_path,
-      notice: "Divesite(s) Successfully Deleted"
+      Divesite.where(id: params[:site_id]).destroy_all
+        redirect_to admin_divesites_path,
+        notice: "Divesite(s) Successfully Deleted"
     end
 
 

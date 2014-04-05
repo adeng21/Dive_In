@@ -4,12 +4,13 @@
 
   <%@divesites.each do |site| %>
     <li>
-      <%= check_box_tag "site_id[]", site.id %>
-      <%= site.name %>
+      <%= check_box_tag "site_id[]", site.id%>
+      <%= link_to site.name, admin_divesite_path(site.id) %>
     </li>
   <%end%>
-  <%= submit_tag "Delete Selected Divesites", data: {confirm: "Are you sure?"}%>
+   <%= submit_tag "Delete Selected Divesites", data: {confirm: "Are you sure?"}%>
 <%end%>
+
 
 
 

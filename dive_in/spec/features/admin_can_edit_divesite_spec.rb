@@ -50,7 +50,18 @@ feature 'add/delete/edit a divesite to the site', %Q{
     expect(page).to have_content("Divesite(s) Successfully Deleted")
   end
 
-  scenario 'ad admin edits an existing divesite'
+  scenario 'ad admin edits an existing divesite' do
+    divesite = FactoryGirl.create(:divesite)
+    click_on 'List of Existing Divesites'
+    click_on "#{divesite.name}"
+    click_on "Edit Information"
+    fill_in "Region", with: "San Pedro"
+    click_on "Update Divesite"
+
+    expect(page).to have_content("Divesite Successfully Updated")
+    expect(page).to have_content("San Pedro")
+
+  end
 
   scenario 'a standard user does not have access to any of the add/edit/remove functions'
 

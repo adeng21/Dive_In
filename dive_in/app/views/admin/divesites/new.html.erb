@@ -1,14 +1,2 @@
-<%= simple_form_for [:admin, @divesite] do |f| %>
-
-  <%= f.input :name %>
-  <%= f.input :region, required: false %>
-  <%= f.input :country %>
-  <%= f.input :latitude %>
-  <%= f.input :longitude %>
-  <%= f.input :description %>
-  <%= f.input :surrounding_area, required: false %>
-  <%= f.input :rating, collection: 1..5 %>
-  <%= f.input :water_temperature, required: false %>
-  <%= f.input :visibility, required: false %>
-  <%= f.button :submit %>
-<%end%>
+<h1> Add New Divesite </h1>
+<%=render "admin/divesites/form"%>
