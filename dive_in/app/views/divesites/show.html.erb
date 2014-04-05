@@ -1,1 +1,6 @@
 <%= render "divesites/site" %>
+
+
+<% if user_signed_in?%>
+  <%= link_to 'Submit a Review', #new_review_path %>
+<%end%>
