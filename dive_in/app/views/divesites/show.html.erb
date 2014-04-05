@@ -2,5 +2,5 @@
 
 
 <% if user_signed_in?%>
-  <%= link_to 'Submit a Review', #new_review_path %>
+  <%= link_to 'Submit a Review', new_divesite_review_path(@divesite)%>
 <%end%>

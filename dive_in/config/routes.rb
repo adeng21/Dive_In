@@ -3,7 +3,9 @@ DiveIn::Application.routes.draw do
   devise_for :users
   root "home#index"
 
-  resources :divesites, only:[:index, :show]
+  resources :divesites, only:[:index, :show] do
+    resources :reviews
+  end
 
   namespace :admin do
     resources :divesites do

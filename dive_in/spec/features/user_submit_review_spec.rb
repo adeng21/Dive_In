@@ -11,6 +11,8 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
   #User must specify a time and a minimum amount of words to give a valid review
   #A User that is not signed in can view existing reviews, but not submit one of his own
   #Each divesite page has a reviews page
+  #If a user is deleted, his reviews stay on the divesite page
+  #If a divesite is deleted, all reviews are deleted
 
   scenario 'signed in user submits a valid review' do
     divesite = FactoryGirl.create(:divesite)
@@ -19,11 +21,14 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
     click_on "Best Divesites in the World"
     click_on divesite.name
     click_on 'Submit a Review'
-    fill_in 'Date', with: "March 2014"
-    fill_in 'Rating', with: 5
+    find(:css, "#review_date_1i").select("2014")
+    find(:css, "#review_date_2i").select("May")
+    find(:css, "#review_date_3i").select("5")
+    select "5", from: 'Rating'
     fill_in 'Title', with: 'Fantastic dive'
     fill_in 'Body', with: "Best place I've ever dived. So many fish to see"
-    click_on 'Submit Review'
+    click_on 'Create Review'
+    binding.pry
 
     expect(page).to have_content("Review Successfully Submitted!")
     expect(divesite.reviews.count).to eql(1)
@@ -34,4 +39,8 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
 
   scenario 'a visitor/un-signed in user can view existing reviews but not submit one of his own'
 
+  scenario ''
+
 end
+
+

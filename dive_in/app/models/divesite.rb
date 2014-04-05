@@ -7,4 +7,6 @@ class Divesite < ActiveRecord::Base
   validates :latitude, presence: true
   validates :longitude, presence: true
 
+  has_many :reviews, dependent: :destroy, inverse_of: :divesite
+
 end

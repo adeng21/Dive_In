@@ -1,0 +1,8 @@
+<%= simple_form_for [@divesite, @review] do |f| %>
+
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.input :rating, collection: 1..5 %>
+  <%= f.input :date%>
+  <%= f.button :submit %>
+<%end%>
