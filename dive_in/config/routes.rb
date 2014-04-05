@@ -2,6 +2,18 @@ DiveIn::Application.routes.draw do
 
   devise_for :users
   root "home#index"
+
+  resources :divesites, only:[:index, :show]
+
+  namespace :admin do
+    resources :divesites do
+      collection do
+        delete 'destroy_multiple'
+      end
+    end
+    resources :homes, only:[:index]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
