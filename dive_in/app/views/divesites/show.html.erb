@@ -1,6 +1,10 @@
 <%= render "divesites/site" %>
 
 
+<li><%= link_to 'Reviews', divesite_reviews_path(@divesite)%></li>
+
 <% if user_signed_in?%>
-  <%= link_to 'Submit a Review', new_divesite_review_path(@divesite)%>
+  <li><%= link_to 'Submit a Review', new_divesite_review_path(@divesite)%></li>
 <%end%>
+
+<li><%= link_to 'Back to Divesites', divesites_path%></li>

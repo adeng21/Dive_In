@@ -10,7 +10,7 @@ feature 'add/delete/edit a divesite to the site', %Q{
   #An admin can add a new divesite
   #An admin can remove an existing divesite
   #An admin can edit the attributes of an existing divesite
-  #A standard user cannot add, remove, or edit a divesite
+
 
   before :each do
     user = FactoryGirl.create(:user, role: 'admin')
