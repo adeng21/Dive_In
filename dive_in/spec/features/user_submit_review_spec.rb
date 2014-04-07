@@ -28,7 +28,6 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
     fill_in 'Title', with: 'Fantastic dive'
     fill_in 'Body', with: "Best place I've ever dived. So many fish to see"
     click_on 'Create Review'
-    binding.pry
 
     expect(page).to have_content("Review Successfully Submitted!")
     expect(divesite.reviews.count).to eql(1)
