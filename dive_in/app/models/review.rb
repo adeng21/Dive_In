@@ -4,7 +4,6 @@ class Review < ActiveRecord::Base
   validates :body, presence: true
   validates :date, presence: true
   validates :rating, presence: true, inclusion: {:in => 1..5}
-  validates :user_id, presence: true
   validates :divesite_id, presence: true
 
   belongs_to :user, inverse_of: :reviews

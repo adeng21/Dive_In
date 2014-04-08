@@ -6,7 +6,7 @@ FactoryGirl.define do
     body  "So many great things to see!"
     rating "5"
     date Date.new(2012, 12, 3)
-    user_id "1"
-    divesite_id "1"
+    user
+    divesite
   end
 end
