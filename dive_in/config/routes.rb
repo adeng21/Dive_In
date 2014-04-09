@@ -3,6 +3,10 @@ DiveIn::Application.routes.draw do
   devise_for :users
   root "home#index"
 
+  resources :categories, only:[:index, :show] do
+    resources :divesites, only:[:index]
+  end
+
   resources :divesites, only:[:index, :show] do
     resources :reviews
   end

@@ -12,5 +12,15 @@ FactoryGirl.define do
     rating 5
     water_temperature "30-35"
     visibility "really clear"
+    # after_create do |divesite|
+    #     divesite.categories << FactoryGirl.create_list(:category, 2)
+    # end
   end
 end
+
+# divesite = FactoryGirl.create(:divesite)
+# categories = FactoryGirl.create_list(:category, 3)
+# divesite.categories << categories
+
+# add_index :table_name, [:column1, :column2], unique: true
+

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  has_many :reviews, inverse_of: :user
+  has_many :reviews, dependent: :nullify, inverse_of: :user
 
 
 
