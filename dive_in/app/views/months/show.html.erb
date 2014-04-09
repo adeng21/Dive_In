@@ -1,0 +1,5 @@
+<h1>Best Divesites in <%=@month.name%></h1>
+
+<% @month.divesites.each do |site|%>
+<li><%= link_to site.name, divesite_path(site) %></li>
+<%end%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408203206) do
+ActiveRecord::Schema.define(version: 20140409121023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20140408203206) do
     t.datetime "updated_at"
   end
 
+  create_table "divesite_months", force: true do |t|
+    t.integer  "month_id",    null: false
+    t.integer  "divesite_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "divesites", force: true do |t|
     t.string   "name",              null: false
     t.string   "region"
@@ -42,6 +49,12 @@ ActiveRecord::Schema.define(version: 20140408203206) do
     t.datetime "updated_at"
     t.float    "latitude",          null: false
     t.float    "longitude",         null: false
+  end
+
+  create_table "months", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: true do |t|
