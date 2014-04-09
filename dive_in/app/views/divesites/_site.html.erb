@@ -42,9 +42,17 @@
     <%= @divesite.visibility %>
   <%end%>
 </p>
+
 <p>
   <strong> Best Known For:</strong>
   <% @divesite.categories.each do |category|%>
   <%=link_to category.name, category_path(category)%><br>
+  <%end%>
+</p>
+
+<p>
+  <strong> Best Month(s) of the Year to Dive:</strong>
+  <% @divesite.months.each do |month|%>
+  <%=link_to month.name, month_path(month)%><br>
   <%end%>
 </p>

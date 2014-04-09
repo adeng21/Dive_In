@@ -10,5 +10,7 @@ class Divesite < ActiveRecord::Base
   has_many :reviews, dependent: :destroy, inverse_of: :divesite
   has_many :divesite_categories
   has_many :categories, through: :divesite_categories
+  has_many :divesite_months
+  has_many :months, through: :divesite_months
 
 end
