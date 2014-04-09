@@ -1,1 +1,6 @@
-<%= link_to 'Best Divesites in the World', divesites_path%>
+<%= link_to 'Best Divesites in the World', divesites_path%><br>
+
+<strong>Find Divesites By Category</strong><br>
+<% @categories.each do |category|%>
+<%= link_to category.name, category_path(category)%>
+<%end%>

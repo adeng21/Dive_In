@@ -8,5 +8,7 @@ class Divesite < ActiveRecord::Base
   validates :longitude, presence: true
 
   has_many :reviews, dependent: :destroy, inverse_of: :divesite
+  has_many :divesite_categories
+  has_many :categories, through: :divesite_categories
 
 end

@@ -1,3 +1,5 @@
 <% @divesites.each do |site|%>
   <li><%= link_to site.name, divesite_path(site.id) %></li>
 <%end%>
+
+<%= link_to "Back to Home Page", root_path%>
