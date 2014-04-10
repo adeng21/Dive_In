@@ -42,7 +42,6 @@ module Admin
       end
     end
 
-    #this pops up multiple times and when I hit cancel, it still deletes
     def destroy
       @divesite = Divesite.find(params[:id])
       @divesite.destroy
@@ -50,7 +49,6 @@ module Admin
         notice: "Divesite Successfully Removed"
     end
 
-    #this isn't working properly right now
     def destroy_multiple
       Divesite.where(id: params[:site_id]).destroy_all
         redirect_to admin_divesites_path,
