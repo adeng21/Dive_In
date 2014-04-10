@@ -75,7 +75,7 @@ module Admin
     end
 
     def divesite_params
-      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude, :description, :surrounding_area, :rating, :water_temperature, :visibility, :months => [], :categories => [])
+      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude, :description, :surrounding_area, :rating, :water_temperature, :visibility, :image, :months => [], :categories => [])
     end
   end
 end

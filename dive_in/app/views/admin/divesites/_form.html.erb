@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @divesite] do |f| %>
+<%= simple_form_for [:admin, @divesite], html: {multipart: true} do |f| %>
 
   <%= f.input :name %>
   <%= f.input :region, required: false %>
@@ -12,5 +12,6 @@
   <%= f.input :visibility, required: false %>
   <%= f.association :months, collection: Month.all, as: :check_boxes, value_method: :id, label_method: :name%>
   <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id, label_method: :name%>
+  <%= f.file_field :image %>
   <%= f.button :submit %>
 <%end%>
