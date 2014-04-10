@@ -34,6 +34,7 @@ module Admin
     def update
       @divesite = Divesite.find(params[:id])
       if @divesite.update(divesite_params)
+        delete_join_table
         create_join_table
         redirect_to admin_divesite_path(@divesite),
         notice: "Divesite Successfully Updated!"
@@ -72,6 +73,11 @@ module Admin
         DivesiteCategory.create(divesite: @divesite, category: category)
         end
       end
+    end
+
+    def delete_join_table
+      DivesiteMonth.where(divesite: @divesite).destroy_all
+      DivesiteCategory.where(divesite: @divesite).destroy_all
     end
 
     def divesite_params
