@@ -11,10 +11,11 @@ module Admin
     def create
       @divesite = Divesite.new(divesite_params)
       if @divesite.save
+        create_join_table
         redirect_to admin_homes_path,
         notice: "New Divesite Successfully Created!"
       else
-        render new
+        render 'new'
       end
     end
 
@@ -33,13 +34,15 @@ module Admin
     def update
       @divesite = Divesite.find(params[:id])
       if @divesite.update(divesite_params)
+        create_join_table
         redirect_to admin_divesite_path(@divesite),
         notice: "Divesite Successfully Updated!"
       else
-        render action: 'edit'
+        render 'edit'
       end
     end
 
+    #this pops up multiple times and when I hit cancel, it still deletes
     def destroy
       @divesite = Divesite.find(params[:id])
       @divesite.destroy
@@ -47,6 +50,7 @@ module Admin
         notice: "Divesite Successfully Removed"
     end
 
+    #this isn't working properly right now
     def destroy_multiple
       Divesite.where(id: params[:site_id]).destroy_all
         redirect_to admin_divesites_path,
@@ -56,12 +60,24 @@ module Admin
 
     protected
 
-    def divesite_params
-      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude, :description, :surrounding_area, :rating, :water_temperature, :visibility)
+    def create_join_table
+      params[:divesite][:month_ids].each do |month_id|
+        unless month_id == ""
+        month = Month.find(month_id)
+        DivesiteMonth.create(divesite: @divesite, month: month)
+        end
+      end
+
+      params[:divesite][:category_ids].each do |category_id|
+        unless category_id == ""
+        category = Category.find(category_id)
+        DivesiteCategory.create(divesite: @divesite, category: category)
+        end
+      end
     end
 
-
-
-
+    def divesite_params
+      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude, :description, :surrounding_area, :rating, :water_temperature, :visibility, :months => [], :categories => [])
+    end
   end
 end

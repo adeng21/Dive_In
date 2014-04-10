@@ -12,5 +12,4 @@ class Divesite < ActiveRecord::Base
   has_many :categories, through: :divesite_categories
   has_many :divesite_months
   has_many :months, through: :divesite_months
-
 end
