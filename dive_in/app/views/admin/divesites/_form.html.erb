@@ -10,5 +10,7 @@
   <%= f.input :rating, collection: 1..5 %>
   <%= f.input :water_temperature, required: false %>
   <%= f.input :visibility, required: false %>
+  <%= f.association :months, collection: Month.all, as: :check_boxes, value_method: :id, label_method: :name%>
+  <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id, label_method: :name%>
   <%= f.button :submit %>
 <%end%>
