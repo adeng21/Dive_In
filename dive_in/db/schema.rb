@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410165816) do
+
+ActiveRecord::Schema.define(version: 20140410180545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140410165816) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "divesite_categories", force: true do |t|
     t.integer  "divesite_id", null: false
@@ -57,6 +60,8 @@ ActiveRecord::Schema.define(version: 20140410165816) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "months", ["name"], name: "index_months_on_name", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.string   "title",       null: false
