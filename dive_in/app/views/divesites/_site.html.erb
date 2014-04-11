@@ -1,6 +1,8 @@
 <h1><%= @divesite.name %></h1>
 
-<%= image_tag @divesite.image.url.to_s%>
+<% @divesite_images.each do |p|%>
+  <%= image_tag p.image.url.to_s %>
+<%end%>
 
 <p>
   <%if @divesite.region != ""%>

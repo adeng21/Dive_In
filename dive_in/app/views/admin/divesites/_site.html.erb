@@ -1,6 +1,9 @@
 <h1><%= @divesite.name %></h1>
 
-<%= image_tag @divesite.image.url.to_s%>
+<% @divesite.media.each do |medium|%>
+  <%=image_tag medium.image.url %>
+<%end%>
+
 
 <p>
   <strong>Region:</strong>

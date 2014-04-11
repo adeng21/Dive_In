@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410182223) do
+ActiveRecord::Schema.define(version: 20140411150559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,16 @@ ActiveRecord::Schema.define(version: 20140410182223) do
     t.datetime "updated_at"
     t.float    "latitude",          null: false
     t.float    "longitude",         null: false
-    t.string   "image"
   end
+
+  create_table "media", force: true do |t|
+    t.string   "image"
+    t.integer  "divesite_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "media", ["divesite_id"], name: "index_media_on_divesite_id", using: :btree
 
   create_table "months", force: true do |t|
     t.string   "name",       null: false

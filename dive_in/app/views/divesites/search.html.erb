@@ -1,0 +1,8 @@
+<%= search_form_for @search do |f| %>
+
+  <%= f.label :country %>
+  <%= f.select :country_id, options_from_collection_for_select(Divesite.all) %>
+
+
+  <%= f.button :submit %>
+<%end%>

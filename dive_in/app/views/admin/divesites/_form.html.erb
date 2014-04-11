@@ -12,6 +12,6 @@
   <%= f.input :visibility, required: false %>
   <%= f.association :months, collection: Month.all, as: :check_boxes, value_method: :id, label_method: :name%>
   <%= f.association :categories, collection: Category.all, as: :check_boxes, value_method: :id, label_method: :name%>
-  <%= f.file_field :image %>
+  <%= f.file_field :image, multiple: true %>
   <%= f.button :submit %>
 <%end%>

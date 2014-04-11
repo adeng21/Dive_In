@@ -13,10 +13,14 @@ DiveIn::Application.routes.draw do
 
   resources :divesites, only:[:index, :show] do
     resources :reviews
+    collection do
+      get 'search'
+    end
   end
 
   namespace :admin do
     resources :divesites do
+      resources :media, only: [:new, :create, :destroy]
       collection do
         delete 'destroy_multiple'
       end

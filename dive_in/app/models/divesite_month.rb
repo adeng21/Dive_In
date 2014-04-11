@@ -1,8 +1,8 @@
 class DivesiteMonth < ActiveRecord::Base
 
-  validates :divesite_id, presence: true
-  validates :month_id, presence: true
-  validates_uniqueness_of :divesite_id, scope: :month_id
+  validates :divesite, presence: true, on: :update
+  validates :month, presence: true, on: :update
+  validates_uniqueness_of :divesite, scope: :month
 
   belongs_to :divesite
   belongs_to :month
