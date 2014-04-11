@@ -29,6 +29,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'country_select'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

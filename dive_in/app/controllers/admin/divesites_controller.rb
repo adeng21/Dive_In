@@ -63,6 +63,7 @@ module Admin
       params[:divesite][:month_ids].each do |month_id|
         unless month_id == ""
         month = Month.find(month_id)
+        # @divesite.months << month
         DivesiteMonth.create(divesite: @divesite, month: month)
         end
       end
