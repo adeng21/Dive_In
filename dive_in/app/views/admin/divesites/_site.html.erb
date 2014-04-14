@@ -1,7 +1,11 @@
 <h1><%= @divesite.name %></h1>
 
 <% @divesite.media.each do |medium|%>
-  <%=image_tag medium.image.url %>
+  <li><%=image_tag medium.image.url(:thumb).to_s %>
+  <%unless @divesite.media.count == 0%>
+  <%= link_to "Delete Image", [:admin, @divesite, medium], method: :delete%>
+  <%end%>
+  </li>
 <%end%>
 
 

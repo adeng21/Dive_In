@@ -15,11 +15,5 @@
   <%= f.association :months, as: :check_boxes %>
   <%= f.association :categories, as: :check_boxes %>
 
-
-  <% @divesite.media.each do |medium| %>
-    <%= f.check_box%>
-    <%= image_tag medium.image.url %>
-  <% end %>
-
   <%= f.button :submit %>
 <%end%>

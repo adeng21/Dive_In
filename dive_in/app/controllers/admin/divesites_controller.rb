@@ -34,7 +34,6 @@ module Admin
 
     def update
       @divesite = Divesite.find(params[:id])
-
       if @divesite.update(divesite_params)
         redirect_to admin_divesite_path(@divesite),
           notice: "Divesite Successfully Updated!"

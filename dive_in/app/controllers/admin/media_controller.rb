@@ -13,11 +13,20 @@ module Admin
       end
     end
 
+    def destroy
+      @divesite = Divesite.find(params[:divesite_id])
+      @medium = @divesite.media.find(params[:id])
+      @medium.destroy
+        redirect_to admin_divesite_path(@divesite),
+        notice: "Image Successfully Removed!"
+    end
+
 
     protected
 
     def media_params
-      params.require(:medium).permit(:image)
+
+      params.require(:medium).permit(:image, :id)
     end
   end
 end
