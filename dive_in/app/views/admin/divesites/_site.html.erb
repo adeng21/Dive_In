@@ -2,9 +2,11 @@
 
 <% @divesite.media.each do |medium|%>
   <li>
-  <%unless @divesite.media.count == 0%>
-  <%=image_tag medium.image.url(:thumb).to_s %>
-  <%= link_to "Delete Image", [:admin, @divesite, medium], method: :delete, data: {confirm: "Are you sure?"}%>
+  <% unless @divesite.media.count == 0 %>
+    <%=image_tag medium.image.url(:thumb).to_s %>
+    <%unless medium.image.length == 0 %>
+    <%= link_to "Delete Image", [:admin, @divesite, medium], method: :delete, data: {confirm: "Are you sure?"}%>
+    <%end%>
   <%end%>
   </li>
 <%end%>

@@ -1,12 +1,18 @@
 
 <h1 align="center"> Complete List of Divesites </h1>
 
+<%= search_form_for @search, url: divesites_path do |f| %>
+  <%=f.select :country_eq, options_from_collection_for_select(Divesite.all, "id", "country"), include_blank: true %>
+
+  <%= f.submit "Search"%>
+<%end%>
+
 <table align="center">
-  <th width = "150"> Site Name </th>
-  <th width = "150"> Country </th>
-  <th width = "200"> Best Known for </th>
-  <th width = "200"> Best Months to Dive </th>
-  <th width = "100"> Overall Rating </th>
+  <th width = "150"><%= sort_link @search, :name, "Site Name"%> </th>
+  <th width = "150"><%= sort_link @search, :country, "Country"%> </th>
+  <th width = "200"><%= sort_link @search, :category, "Best Known For"%></th>
+  <th width = "200"><%= sort_link @search, :month, "Best Months to Dive"%></th>
+  <th width = "100"><%= sort_link @search, :rating, "Overall Rating"%></th>
 
 
 <% @divesites.each do |site|%>
