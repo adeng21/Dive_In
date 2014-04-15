@@ -13,6 +13,7 @@ describe Divesite do
   it{should have_many(:categories)}
   it{should have_many(:divesite_months)}
   it{should have_many(:months)}
+  it{should have_many(:media)}
 end
 
 

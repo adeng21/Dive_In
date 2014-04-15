@@ -11,9 +11,8 @@ module Admin
     def create
       @divesite = Divesite.new(divesite_params)
       if @divesite.save
-        create_join_table
         redirect_to admin_homes_path,
-        notice: "New Divesite Successfully Created!"
+          notice: "New Divesite Successfully Created!"
       else
         render 'new'
       end
@@ -25,6 +24,8 @@ module Admin
 
     def show
       @divesite = Divesite.find(params[:id])
+      # @divesite_images = @divesite.media.all
+      @medium = @divesite.media.build
     end
 
     def edit
@@ -34,9 +35,8 @@ module Admin
     def update
       @divesite = Divesite.find(params[:id])
       if @divesite.update(divesite_params)
-        create_join_table
         redirect_to admin_divesite_path(@divesite),
-        notice: "Divesite Successfully Updated!"
+          notice: "Divesite Successfully Updated!"
       else
         render 'edit'
       end
@@ -58,24 +58,10 @@ module Admin
 
     protected
 
-    def create_join_table
-      params[:divesite][:month_ids].each do |month_id|
-        unless month_id == ""
-        month = Month.find(month_id)
-        DivesiteMonth.create(divesite: @divesite, month: month)
-        end
-      end
-
-      params[:divesite][:category_ids].each do |category_id|
-        unless category_id == ""
-        category = Category.find(category_id)
-        DivesiteCategory.create(divesite: @divesite, category: category)
-        end
-      end
-    end
-
     def divesite_params
-      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude, :description, :surrounding_area, :rating, :water_temperature, :visibility, :months => [], :categories => [])
+      params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude,
+        :description, :surrounding_area, :rating, :water_temperature, :visibility,
+        :month_ids => [], :category_ids => [], :medium_ids => [])
     end
   end
 end

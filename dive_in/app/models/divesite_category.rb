@@ -1,7 +1,8 @@
 class DivesiteCategory < ActiveRecord::Base
 
-  validates :divesite_id, presence: true
-  validates :category_id, presence: true
+  validates :divesite, presence: true, on: :update
+  validates :category, presence: true, on: :update
+  validates_uniqueness_of :divesite, scope: :category
 
   belongs_to :category
   belongs_to :divesite

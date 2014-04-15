@@ -1,0 +1,32 @@
+<div class="contain-to-grid">
+  <nav class="top-bar height=30px">
+    <ul>
+      <li class="toggle-topbar"></li>
+    </ul>
+
+    <section class="top-bar-section">
+    <ul class="right">
+    <%if user_signed_in?%>
+      <li><%= link_to 'Sign out', destroy_user_session_path,  method: :delete %><li>
+    </ul>
+
+    <ul class="right">
+      <%if current_user.is_admin? %>
+        <li><%= link_to 'Admin Section', admin_homes_path %></li>
+      <% end %>
+    </ul>
+
+    <% else %>
+
+    <ul class="right">
+      <li><%= link_to 'Sign up', new_user_registration_path %></li>
+    </ul>
+    <ul class="right">
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    </ul>
+    <% end %>
+
+  </section>
+
+  </nav>
+</div>

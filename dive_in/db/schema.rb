@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410180545) do
+ActiveRecord::Schema.define(version: 20140414142503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,16 @@ ActiveRecord::Schema.define(version: 20140410180545) do
     t.datetime "updated_at"
   end
 
+  add_index "divesite_categories", ["divesite_id", "category_id"], name: "index_divesite_categories_on_divesite_id_and_category_id", unique: true, using: :btree
+
   create_table "divesite_months", force: true do |t|
     t.integer  "month_id",    null: false
     t.integer  "divesite_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "divesite_months", ["divesite_id", "month_id"], name: "index_divesite_months_on_divesite_id_and_month_id", unique: true, using: :btree
 
   create_table "divesites", force: true do |t|
     t.string   "name",              null: false
@@ -51,8 +55,16 @@ ActiveRecord::Schema.define(version: 20140410180545) do
     t.datetime "updated_at"
     t.float    "latitude",          null: false
     t.float    "longitude",         null: false
-    t.string   "image"
   end
+
+  create_table "media", force: true do |t|
+    t.string   "image"
+    t.integer  "divesite_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "media", ["divesite_id"], name: "index_media_on_divesite_id", using: :btree
 
   create_table "months", force: true do |t|
     t.string   "name",       null: false

@@ -12,4 +12,19 @@ class Divesite < ActiveRecord::Base
   has_many :categories, through: :divesite_categories
   has_many :divesite_months
   has_many :months, through: :divesite_months
+  has_many :media
+
+
+  def search_by_country(country)
+    Divesite.where(country: country)
+  end
+
+  def search_by_month(month)
+    Divesite.where(month: month)
+  end
+
+  def search_by_category(category)
+    Divesite.where(category: category)
+  end
+
 end
