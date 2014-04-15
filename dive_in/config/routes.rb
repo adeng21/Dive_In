@@ -13,9 +13,6 @@ DiveIn::Application.routes.draw do
 
   resources :divesites, only:[:index, :show] do
     resources :reviews
-    collection do
-      get 'search'
-    end
   end
 
   namespace :admin do

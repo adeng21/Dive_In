@@ -1,5 +1,33 @@
+
+<h1 align="center"> Complete List of Divesites </h1>
+
+<table align="center">
+  <th width = "150"> Site Name </th>
+  <th width = "150"> Country </th>
+  <th width = "200"> Best Known for </th>
+  <th width = "200"> Best Months to Dive </th>
+  <th width = "100"> Overall Rating </th>
+
+
 <% @divesites.each do |site|%>
-  <li><%= link_to site.name, divesite_path(site.id) %></li>
+ <tr>
+  <td><%= link_to site.name, divesite_path(site.id) %></td>
+  <td><%= site.country%></td>
+  <td>
+      <%site.categories.each do |category|%>
+      <%= link_to category.name, category_path(category)%><br>
+      <%end%>
+  </td>
+  <td>
+      <%site.months.each do |month|%>
+      <%= link_to month.name, month_path(month)%><br>
+      <%end%>
+  </td>
+  <td><%= site.rating%></td>
+</tr>
 <%end%>
 
+
+
+</table>
 <%= link_to "Back to Home Page", root_path%>
