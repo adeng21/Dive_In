@@ -58,16 +58,10 @@ module Admin
 
     protected
 
-    # def create_image
-    #   params[:divesite]['image'].each do |a|
-    #     @divesite_image = @divesite.media.create(image: a, divesite: @divesite)
-    #   end
-    # end
-
     def divesite_params
       params.require(:divesite).permit(:name, :region, :country, :latitude, :longitude,
         :description, :surrounding_area, :rating, :water_temperature, :visibility,
-        :month_ids => [], :category_ids => [], :medium_ids => []) # media_attributes:[:id, :divesite_id, :image])
+        :month_ids => [], :category_ids => [], :medium_ids => [])
     end
   end
 end

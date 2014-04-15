@@ -15,9 +15,17 @@ class DivesitesController < ApplicationController
   end
 
   def search
-    @search = Divesite.ransack(params[:q])
-    @divesites = @search.result
+    # @divesites = Divesite.find_by(divesite_params)
   end
+
+
+
+  protected
+
+  def divesite_params
+    params.require(:divesite).permit(:name, :country, :latitude, :longitude, :month_ids => [], :category_ids => [])
+  end
+
 end
 
 
