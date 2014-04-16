@@ -1,0 +1,25 @@
+<% width = "1000px" if local_assigns[:width].nil? %>
+<% height = "600px" if local_assigns[:height].nil? %>
+
+<div class="text-align-center">
+<div id="map" style='width: <%= width %>; height: <%= height %>;'></div>
+</div>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+  var handler = Gmaps.build('Google');
+
+  handler.buildMap({
+    internal: {id: 'map'},
+      provider: {
+        zoom: 2,
+        center: new google.maps.LatLng(53.385873, -1.471471),
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+      }
+    },
+      function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json%>);
+      handler.fitMapToBounds();
+    });
+  </script>
+<%end%>
