@@ -1,9 +1,9 @@
 <% width = "1000px" if local_assigns[:width].nil? %>
 <% height = "600px" if local_assigns[:height].nil? %>
 
-<div class="text-align-center">
+
 <div id="map" style='width: <%= width %>; height: <%= height %>;'></div>
-</div>
+
 
 <% content_for :javascripts do %>
   <script type="text/javascript">
@@ -13,7 +13,7 @@
     internal: {id: 'map'},
       provider: {
         zoom: 2,
-        center: new google.maps.LatLng(53.385873, -1.471471),
+        center: new google.maps.LatLng(35.122863, 19.029714),
         mapTypeId: google.maps.MapTypeId.SATELLITE
       }
     },

@@ -6,19 +6,24 @@
 
 <%= render 'maps/map'%>
 
-<h1 align="center">Find Divesites By Category</h1><br>
-<ul class="small-block-grid-6">
-  <% @categories.each do |category|%>
-  <li class="text-center"><%= link_to category.name, category_path(category)%></li>
-  <%end%>
-</ul>
+<div>
+  <h1 align="center">Find Divesites By Category</h1><br>
+  <ul class="small-block-grid-6">
+    <% @categories.each do |category|%>
+    <li class="text-center"><%= link_to category.name, category_path(category)%></li>
+    <%end%>
+  </ul>
+</div>
 
-<h1 align="center">Find Divesites By Month</h1><br>
+<div>
+  <h1 align="center">Find Divesites By Month</h1><br>
+  <ul class="small-block-grid-6">
+    <% @months.each do |month|%>
+    <li class="text-center"><%= link_to month.name, month_path(month)%></li>
+    <%end%>
+  </ul>
+</div>
 
-<ul class="small-block-grid-6">
-  <% @months.each do |month|%>
-  <li class="text-center"><%= link_to month.name, month_path(month)%></li>
-  <%end%>
-</ul>
-
-<h1 align="center"><%=link_to 'List of the Best Divesites in the World', divesites_path%></h1>
+<div>
+  <h1 align="center"><%=link_to 'List of the Best Divesites in the World', divesites_path%></h1>
+</div>
