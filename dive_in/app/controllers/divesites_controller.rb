@@ -1,12 +1,19 @@
 class DivesitesController < ApplicationController
 
+
   def index
     # if params[:category_id]
     #   category = Category.find_by(id: params[:category_id])
     #   @divesites = category.divesites
     # else
-      @divesites = Divesite.all
-    # end
+      @search = Divesite.ransack(params[:q])
+      @divesites = @search.result
+      @search.build_condition
+
+
+
+      # @divesites = Divesite.all
+
   end
 
   def show

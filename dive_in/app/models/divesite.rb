@@ -15,16 +15,13 @@ class Divesite < ActiveRecord::Base
   has_many :media
 
 
-  def search_by_country(country)
-    Divesite.where(country: country)
+  def overall_rating
+    if reviews.count == 0
+      rating
+    elsif reviews.count <= 10
+      (rating.to_f * 0.5) + (reviews.all.inject{|sum, review| sum + review}.to_f/reviews.all.count)
+    else
+      reviews.all.inject{|sum, review| sum + review}.to_f/reviews.all.count
+    end
   end
-
-  def search_by_month(month)
-    Divesite.where(month: month)
-  end
-
-  def search_by_category(category)
-    Divesite.where(category: category)
-  end
-
 end
