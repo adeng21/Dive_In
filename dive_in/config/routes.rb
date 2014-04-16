@@ -12,6 +12,9 @@ DiveIn::Application.routes.draw do
   end
 
   resources :divesites, only:[:index, :show] do
+    collection do
+      post 'search'
+    end
     resources :reviews
   end
 

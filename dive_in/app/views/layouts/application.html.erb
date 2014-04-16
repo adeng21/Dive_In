@@ -17,6 +17,12 @@
 
 <%= render 'layouts/navbar'%>
 <%= render 'layouts/messages'%>
+<%= simple_form_for :q, url: search_divesites_path do |f| %>
+  <%= f.input :name, required: false %>
+  <%= f.input :months, collection: Month.all, as: :check_boxes %>
+  <%= f.input :categories, collection: Category.all, as: :check_boxes %>
+  <%= f.submit %>
+<% end %>
 
 
   <%= yield %>

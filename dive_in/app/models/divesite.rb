@@ -24,4 +24,15 @@ class Divesite < ActiveRecord::Base
       reviews.all.inject{|sum, review| sum + review}.to_f/reviews.all.count
     end
   end
+
+  class << self
+    def search(params)
+      name = "%#{params[:name]}%"
+      months = params[:months].map{|month| month.to_i}
+      categories = params[:categories].map{|category| category.to_i}
+      self.includes([:months, :categories]).where(
+        "months.id IN (?) OR categories.id IN (?) OR divesites.name ILIKE ?",
+        months, categories, name)
+    end
+  end
 end

@@ -21,6 +21,10 @@ class DivesitesController < ApplicationController
     @divesite_images = @divesite.media.all
   end
 
+  def search
+    @divesites = Divesite.search(params[:q])
+  end
+
 
 
 end
