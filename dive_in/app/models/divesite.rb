@@ -14,14 +14,33 @@ class Divesite < ActiveRecord::Base
   has_many :months, through: :divesite_months
   has_many :media
 
+  def total_review_ratings
+    ratings = []
+    reviews.all.each do |review|
+      ratings << review[:rating]
+    end
+    ratings
+  end
+
+  def average_review_rating
+    (total_review_ratings.inject{|sum, review| sum + review}/reviews.all.count).to_f
+  end
 
   def overall_rating
     if reviews.count == 0
-      rating
+      rating.to_f
     elsif reviews.count <= 10
-      (rating.to_f * 0.5) + (reviews.all.inject{|sum, review| sum + review}.to_f/reviews.all.count)
+      (rating.to_f * 0.5) + (average_review_rating * 0.5)
     else
-      reviews.all.inject{|sum, review| sum + review}.to_f/reviews.all.count
+      average_review_rating
     end
+  end
+
+  def self.search(params)
+    months = params[:months].map{|month| month.to_i}
+    categories = params[:categories].map{|category| category.to_i}
+
+    self.includes([:months, :categories]).where("months.id IN (?) OR categories.id IN (?)", months, categories)
+
   end
 end

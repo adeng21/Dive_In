@@ -11,8 +11,11 @@ DiveIn::Application.routes.draw do
     resources :divesites, only:[:index]
   end
 
-  resources :divesites, only:[:index, :show] do
+  resources :divesites, only:[:index, :show, :search] do
     resources :reviews
+    collection do
+      post 'search', to: 'divesites#index'
+    end
   end
 
   namespace :admin do
@@ -24,6 +27,7 @@ DiveIn::Application.routes.draw do
     end
     resources :homes, only:[:index]
   end
+
 
 
 

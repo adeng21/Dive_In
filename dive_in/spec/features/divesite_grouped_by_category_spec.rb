@@ -12,6 +12,7 @@ feature 'divesites are grouped by categories that they are best known for', %Q{
     #Wrecks/Artifacts, Cave, Drift, Whales & Sharks, Macro/Corals, Manta Rays,
     #Turtles, Night, Schools of Fish, Wall
   #Visitor can view divesites listed under each category
+  #Only the top 10 highest ranked divesites are shown in each category
 
   before :each do
     @divesite = FactoryGirl.create(:divesite)
@@ -44,4 +45,5 @@ feature 'divesites are grouped by categories that they are best known for', %Q{
     expect(page).to have_content(@divesite.name)
     expect(current_path).to eql(category_path(@category))
   end
+
 end

@@ -17,18 +17,18 @@ feature 'overall rating for a divesite is partially determined by reviews submit
 
   scenario 'divesite has no reviews' do
 
-  expect(@divesite.overall_rating).to eql(@divesite.rating)
+  expect(@divesite.overall_rating).to eql(@divesite.rating.to_f)
   end
 
   scenario 'divesite has 10 reviews' do
     FactoryGirl.create_list(:review, 10, rating: 3, divesite: @divesite)
 
-  expect(@divesite.overall_rating).to eql(4)
+  expect(@divesite.overall_rating).to eql(4.0)
   end
 
   scenario 'divesite has more than 10 reviews' do
     FactoryGirl.create_list(:review, 20, rating: 3, divesite: @divesite)
 
-  expect(@divesite.overall_rating).to eql(3)
+  expect(@divesite.overall_rating).to eql(3.0)
   end
 end
