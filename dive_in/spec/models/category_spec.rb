@@ -6,4 +6,5 @@ describe Category do
   it{should validate_uniqueness_of(:name)}
   it{should have_many(:divesites)}
   it{should have_many(:divesite_categories)}
+  it{should have_many(:media)}
 end

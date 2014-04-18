@@ -24,7 +24,6 @@ module Admin
 
     def show
       @divesite = Divesite.find(params[:id])
-      # @divesite_images = @divesite.media.all
       @medium = @divesite.media.build
     end
 

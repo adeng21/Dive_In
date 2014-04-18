@@ -1,5 +1,22 @@
-<h1>Best <%=@category.name%> Dives</h1>
+<h1 class="text-center">Top 10 <%=@category.name%> Dives</h1>
 
-<% @category.divesites.each do |site|%>
-<li><%= link_to site.name, divesite_path(site) %></li>
-<%end%>
+<table align="center">
+
+  <tr>
+    <th> Site Name </th>
+    <th> Overall Rating<th>
+    <th> Reviews <th>
+  </tr>
+
+
+  <% @divesites.each do |site|%>
+
+   <tr>
+    <td><%= link_to site.name, divesite_path(site) %></td>
+    <td><%= site.overall_rating %></td>
+    <td><%= link_to "Reviews", divesite_reviews_path(site)%></td>
+  </tr>
+  <%end%>
+</table>
+
+<div><%= link_to "Home Page", root_path%></div>

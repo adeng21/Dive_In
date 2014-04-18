@@ -14,12 +14,18 @@
       provider: {
         zoom: 2,
         center: new google.maps.LatLng(35.122863, 19.029714),
-        mapTypeId: google.maps.MapTypeId.SATELLITE
+        mapTypeId: google.maps.MapTypeId.SATELLITE,
+        draggable: false
       }
     },
       function(){
       markers = handler.addMarkers(<%=raw @hash.to_json%>);
       handler.fitMapToBounds();
-    });
+    }
+
+
+
+
+    );
   </script>
 <%end%>

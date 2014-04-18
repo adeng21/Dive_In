@@ -1,19 +1,22 @@
 
 <h1 align="center"> Complete List of Divesites </h1>
 
-<%= search_form_for @search, url: divesites_path do |f| %>
-  <%=f.select :country_eq, options_from_collection_for_select(Divesite.all, "id", "country"), include_blank: true %>
 
-  <%= f.submit "Search"%>
+<%=simple_form_for :q, url: search_divesites_path, method: :post do |f|%>
+     <%= f.input :name, required: false, label: "Site Name Or Country" %>
+     <%= f.input :months, collection: Month.all, as: :check_boxes, required: false %>
+     <%= f.input :categories, collection: Category.all, as: :check_boxes, required: false %>
+    <%= f.submit 'Search', class: 'button small'%>
 <%end%>
 
-<table align="center">
-  <th width = "150"><%= sort_link @search, :name, "Site Name"%> </th>
-  <th width = "150"><%= sort_link @search, :country, "Country"%> </th>
-  <th width = "200"><%= sort_link @search, :category, "Best Known For"%></th>
-  <th width = "200"><%= sort_link @search, :month, "Best Months to Dive"%></th>
-  <th width = "100"><%= sort_link @search, :rating, "Overall Rating"%></th>
 
+<% if @divesites %>
+<table align="center">
+  <th width = "150"> Site Name </th>
+  <th width = "150">Country</th>
+  <th width = "200">Best Known For</th>
+  <th width = "200">Best Months to Dive</th>
+  <th width = "100">Overall Rating</th>
 
 <% @divesites.each do |site|%>
  <tr>
@@ -29,11 +32,12 @@
       <%= link_to month.name, month_path(month)%><br>
       <%end%>
   </td>
-  <td><%= site.rating%></td>
+  <td><%= site.overall_rating%></td>
 </tr>
 <%end%>
 
-
-
 </table>
+<% else %>
+<p>No divesites matched your query</p>
+<% end %>
 <%= link_to "Back to Home Page", root_path%>

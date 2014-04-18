@@ -2,18 +2,21 @@ class DivesitesController < ApplicationController
 
 
   def index
+    if params[:q]
+      @divesites = Divesite.search(params[:q])
+      @divesites.includes([:categories, :months]) if @divesites
+    else
+      @divesites = Divesite.includes([:categories, :months])
+    end
     # if params[:category_id]
     #   category = Category.find_by(id: params[:category_id])
     #   @divesites = category.divesites
     # else
-      @search = Divesite.ransack(params[:q])
-      @divesites = @search.result
-      @search.build_condition
-
-
-
+    # if params[:q]
+    #   @divesites = Divesite.search(params[:q])
+    # else
       # @divesites = Divesite.all
-
+    # end
   end
 
   def show
@@ -21,11 +24,5 @@ class DivesitesController < ApplicationController
     @divesite_images = @divesite.media.all
   end
 
-
-
 end
 
-
-# form_tag divesites_path, method: :get do
-
-# end

@@ -1,6 +1,8 @@
 module Admin
   class MediaController < ApplicationController
 
+    before_action :authorize_user
+
     def create
       @divesite = Divesite.find(params[:divesite_id])
       @medium = @divesite.media.build(media_params)
@@ -16,6 +18,7 @@ module Admin
     def destroy
       @divesite = Divesite.find(params[:divesite_id])
       @medium = @divesite.media.find(params[:id])
+
       @medium.destroy
         redirect_to admin_divesite_path(@divesite),
         notice: "Image Successfully Removed!"
@@ -26,7 +29,7 @@ module Admin
 
     def media_params
 
-      params.require(:medium).permit(:image, :id)
+      params.require(:medium).permit(:image, :divesite_id, :category_id)
     end
   end
 end
