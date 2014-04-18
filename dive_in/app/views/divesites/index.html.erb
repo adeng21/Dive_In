@@ -3,19 +3,20 @@
 
 
 <%=simple_form_for :q, url: search_divesites_path, method: :post do |f|%>
-     <%= f.input :name, required: false %>
-     <%= f.input :months, collection: Month.all, required: false %>
-     <%= f.input :categories, collection: Category.all, required: false %>
-    <%= f.submit 'Search'%>
+     <%= f.input :name, required: false, label: "Site Name Or Country" %>
+     <%= f.input :months, collection: Month.all, as: :check_boxes, required: false %>
+     <%= f.input :categories, collection: Category.all, as: :check_boxes, required: false %>
+    <%= f.submit 'Search', class: 'button small'%>
 <%end%>
 
+
+<% if @divesites %>
 <table align="center">
   <th width = "150"> Site Name </th>
   <th width = "150">Country</th>
   <th width = "200">Best Known For</th>
   <th width = "200">Best Months to Dive</th>
   <th width = "100">Overall Rating</th>
-
 
 <% @divesites.each do |site|%>
  <tr>
@@ -35,7 +36,8 @@
 </tr>
 <%end%>
 
-
-
 </table>
+<% else %>
+<p>No divesites matched your query</p>
+<% end %>
 <%= link_to "Back to Home Page", root_path%>

@@ -1,6 +1,6 @@
-<h1>Top 10 <%=@category.name%> Dives</h1>
+<h1 class="text-center">Top 10 <%=@category.name%> Dives</h1>
 
-<table>
+<table align="center">
 
   <tr>
     <th> Site Name </th>
@@ -17,5 +17,6 @@
     <td><%= link_to "Reviews", divesite_reviews_path(site)%></td>
   </tr>
   <%end%>
-
 </table>
+
+<div><%= link_to "Home Page", root_path%></div>

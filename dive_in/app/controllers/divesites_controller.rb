@@ -2,6 +2,12 @@ class DivesitesController < ApplicationController
 
 
   def index
+    if params[:q]
+      @divesites = Divesite.search(params[:q])
+      @divesites.includes([:categories, :months]) if @divesites
+    else
+      @divesites = Divesite.includes([:categories, :months])
+    end
     # if params[:category_id]
     #   category = Category.find_by(id: params[:category_id])
     #   @divesites = category.divesites
@@ -9,7 +15,7 @@ class DivesitesController < ApplicationController
     # if params[:q]
     #   @divesites = Divesite.search(params[:q])
     # else
-      @divesites = Divesite.all
+      # @divesites = Divesite.all
     # end
   end
 
@@ -18,8 +24,5 @@ class DivesitesController < ApplicationController
     @divesite_images = @divesite.media.all
   end
 
-  def search
-    @divesites = Divesite.search(params[:q])
-  end
 end
 

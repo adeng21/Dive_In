@@ -19,7 +19,7 @@
   <h1 class="home-header">Find Divesites By Month</h1><br>
   <ul class="small-block-grid-6">
     <% @months.each do |month|%>
-    <li class="text-center"><%= link_to month.name, month_path(month)%></li>
+    <li class="button"><%= link_to month.name, month_path(month)%></li>
     <%end%>
   </ul>
 </div>

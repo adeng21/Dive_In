@@ -37,10 +37,25 @@ class Divesite < ActiveRecord::Base
   end
 
   def self.search(params)
-    months = params[:months].map{|month| month.to_i}
-    categories = params[:categories].map{|category| category.to_i}
+    query = "%#{params[:name]}%"
+    month_ids = params[:months].reject(&:empty?).map{|month| month.to_i}
+    category_ids = params[:categories].reject(&:empty?).map{|category| category.to_i}
 
-    self.includes([:months, :categories]).where("months.id IN (?) OR categories.id IN (?)", months, categories)
+    divesites = Divesite.all
+
+    if !month_ids.empty?
+      divesites = divesites.joins(:months).where("months.id IN (?)", month_ids)
+    end
+
+    if !category_ids.empty?
+      divesites = divesites.joins(:categories).where("categories.id IN (?)", category_ids)
+    end
+
+    if !params[:name].empty?
+      divesites = divesites.where("divesites.name ILIKE ? OR divesites.country ILIKE ?", query, query)
+    end
+
+    divesites
 
   end
 end
