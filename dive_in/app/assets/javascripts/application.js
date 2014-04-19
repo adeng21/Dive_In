@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require underscore
-//= require gmaps/google
+//= require vendor/jquery-jvectormap-1.2.2.min
+//= require maps/world-map
+//= require maps/map
 //= require_tree .
 
 
