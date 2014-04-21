@@ -21,16 +21,31 @@
   align: center;
 }
 
-.category{
-
-}
-
 .month{
   background-color: #0B486B;
   color: #9FD6AE;
+}
+
+.month > h1 {
+  color: #FFFFFF;
+}
+
+.month > li:hover {
+  color: #475F77;
+
+}
+
+.small-block-grid-6 > li {
+  text-align: center;
 }
 
 .show-header{
   text-align: center;
   padding: 20px;
 }
+
+.orbit-image li img{
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
