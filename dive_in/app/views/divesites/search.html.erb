@@ -1,8 +1,0 @@
-<%= simple_form_for search_divesites_path, method: :get do |f| %>
-
-  <%= f.input :country, required: false %>
-  <%= f.input :month, collection: Month.all, required: false %>
-  <%= f.input :category, collection: Category.all, required: false %>
-
-  <%= f.button :submit, "Search for your Divesite" %>
-<%end%>

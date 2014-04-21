@@ -1,20 +1,16 @@
-<h1><%= @divesite.name %></h1>
-
-<% @divesite.media.each do |p|%>
-  <%= image_tag p.image.url.to_s %>
-<%end%>
-
-<p>
+<div class="show-header">
+  <h1><%= @divesite.name %></h1>
   <%if @divesite.region != ""%>
-    <strong>Region:</strong>
-    <%= @divesite.region %>
+  <h3><%= @divesite.region %>
   <%end%>
-</p>
+  <h3><%= @divesite.country %><h3>
+</div>
 
-<p>
-  <strong>Country:</strong>
-  <%= @divesite.country %>
-</p>
+<div class="small-block-grid-5">
+<% @divesite.media.each do |p|%>
+  <li><%= image_tag p.image.url.to_s %></li>
+<%end%>
+</div>
 
 <p>
   <strong>Overall Rating:</strong>

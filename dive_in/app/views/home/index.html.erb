@@ -14,7 +14,7 @@ $(function(){
 <%end%>
 
 
-<div>
+<div class="category">
   <h1 class="home-header">Find Divesites By Category</h1><br>
   <ul class="small-block-grid-5">
     <% @categories.each do |category|%>
@@ -23,7 +23,7 @@ $(function(){
   </ul>
 </div>
 
-<div>
+<div class="month">
   <h1 class="home-header">Find Divesites By Month</h1><br>
   <ul class="small-block-grid-6">
     <% @months.each do |month|%>
@@ -32,7 +32,7 @@ $(function(){
   </ul>
 </div>
 
-<div>
+<div class="list">
   <h1 class="home-header"><%=link_to 'Complete List of the Best Divesites in the World', divesites_path%></h1>
 </div>
 
