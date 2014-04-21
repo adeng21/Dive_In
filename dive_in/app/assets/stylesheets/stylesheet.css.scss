@@ -1,3 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
 #map{
   margin-left: auto;
   margin-right: auto;
@@ -14,11 +25,6 @@
 
 #main-header{
   overflow: auto;
-}
-
-.top-ten{
-  text-align: center;
-  align: center;
 }
 
 .month{
@@ -49,17 +55,16 @@
   padding-top: 25px;
 }
 
-.footer{
-  margin-bottom: 0;
+#footer{
+
+  position: absolute;
   bottom: 0;
-  position: relative;
   width: 100%;
   height: 35px;
   background-color: #230001;
 }
 
-.footer ul li{
-  display: table-cell;
+#footer ul li{
   text-align: center;
   vertical-align: middle;
   font-size: 15px;
@@ -67,6 +72,22 @@
   line-height: 35px;
 }
 
-.footer ul li a{
+#footer ul li a{
   color: #FFFFFF;
+}
+
+.show-table table{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show-table table tr td{
+  text-align: center;
+}
+
+.review-table table{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
 }

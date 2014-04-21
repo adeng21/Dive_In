@@ -15,39 +15,43 @@
 
   <body>
 
-  <%= render 'layouts/messages'%>
-  <div class="contain-to-grid">
-    <nav class="top-bar height=30px">
-      <ul>
-        <li class="toggle-topbar"></li>
-      </ul>
 
-      <section class="top-bar-section">
-        <ul class="right">
-          <%if user_signed_in?%>
-            <li><%= link_to 'Sign out', destroy_user_session_path,  method: :delete %><li>
-            <%if current_user.is_admin? %>
-              <li><%= link_to 'Admin Section', admin_homes_path %></li>
-            <% end %>
-          <% else %>
-            <li><%= link_to 'Sign up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <%= render 'layouts/messages'%>
+    <div class="contain-to-grid">
+      <nav class="top-bar height=30px">
+        <ul>
+          <li class="toggle-topbar"></li>
         </ul>
-        <% end %>
-      </section>
-    </nav>
-  </div>
 
-  <%= yield %>
-  <%= javascript_include_tag "application" %>
-  <%= yield :javascripts %>
+        <section class="top-bar-section">
+          <ul class="right">
+            <%if user_signed_in?%>
+              <li><%= link_to 'Sign out', destroy_user_session_path,  method: :delete %><li>
+              <%if current_user.is_admin? %>
+                <li><%= link_to 'Admin Section', admin_homes_path %></li>
+              <% end %>
+            <% else %>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+          </ul>
+          <% end %>
+        </section>
+      </nav>
+    </div>
 
-  <div class="footer">
-    <ul class="small-block-grid-3">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", root_path %></li>
-      <li><a href="https://github.com/adeng21/Dive_In">Code</a></li>
-    </ul>
-  </div>
+
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
+      <%= yield :javascripts %>
+
+    <div id="container">
+    <div id="footer">
+      <ul class="small-block-grid-3">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", root_path %></li>
+        <li><a href="https://github.com/adeng21/Dive_In">Code</a></li>
+      </ul>
+    </div>
+    </div>
   </body>
 </html>

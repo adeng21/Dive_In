@@ -1,17 +1,26 @@
-<h1>Reviews for <%=@divesite.name%></h1>
+<div class = "show-header">
+  <h1>Reviews for <%=@divesite.name%></h1>
+  <% if user_signed_in?%>
+    <p align="center"><%= link_to 'Submit a Review', new_divesite_review_path(@divesite)%></p>
+  <%end%>
+</div>
 
-<% @reviews.each do |review|%>
+<div class = "review-table">
+  <% @reviews.each do |review|%>
+  <table>
+    <tr>
+      <td><strong><%= review.title %></strong></td>
+      <td align="right">Overall Rating: <%= review.rating %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= review.body%></td>
+    </tr>
+    <tr>
+      <td>Date of Dive: <%= review.date%></td>
+    </tr>
+  </table>
+  <%end%>
+</div>
 
-<table>
-  <tr>
-    <td><%= review.title %></td>
-    <td>Rating: <%= review.rating %></td>
-  </tr>
+<p class="text-center"><strong><%= link_to "Back to Divesite", divesite_path(@divesite)%></strong></p>
 
-  <tr>
-    <td colspan="2"><%= review.body%></td>
-  </tr>
-</table>
-<%end%>
-
-<%= link_to "Back to Divesite", divesite_path(@divesite)%>
