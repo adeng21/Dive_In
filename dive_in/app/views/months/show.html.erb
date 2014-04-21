@@ -1,5 +1,5 @@
-<h1>Best Divesites in <%=@month.name%></h1>
+<div class="show-header">
+  <h1>Top 10 Divesites in <%=@month.name%></h1>
+</div>
 
-<% @month.divesites.each do |site|%>
-<li><%= link_to site.name, divesite_path(site) %></li>
-<%end%>
+<%=render 'divesites/top_divesites'%>

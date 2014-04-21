@@ -1,3 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+}
+
+#container {
+  min-height: 100%;
+  position: relative;
+}
+
 #map{
   margin-left: auto;
   margin-right: auto;
@@ -16,11 +27,67 @@
   overflow: auto;
 }
 
-.button{
+.month{
+  background-color: #0B486B;
+  color: #9FD6AE;
+}
+
+.month > h1 {
+  color: #FFFFFF;
+}
+
+.month > li:hover {
+  color: #475F77;
 
 }
 
-.top-ten{
+.small-block-grid-6 > li {
   text-align: center;
-  align: center;
+}
+
+.show-header{
+  text-align: center;
+  padding: 20px;
+}
+
+.orbit-image li img{
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+#footer{
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background-color: #230001;
+}
+
+#footer ul li{
+  text-align: center;
+  vertical-align: middle;
+  font-size: 15px;
+  height: 35px;
+  line-height: 35px;
+}
+
+#footer ul li a{
+  color: #FFFFFF;
+}
+
+.show-table table{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show-table table tr td{
+  text-align: center;
+}
+
+.review-table table{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
 }

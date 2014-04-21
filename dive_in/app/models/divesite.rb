@@ -56,6 +56,6 @@ class Divesite < ActiveRecord::Base
     end
 
     divesites
-
   end
+
 end
