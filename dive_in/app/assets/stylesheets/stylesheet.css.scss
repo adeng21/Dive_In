@@ -1,11 +1,11 @@
 html, body {
   margin: 0;
   padding: 0;
-
+  min-height: 100%;
 }
 
 #container {
-  min-height: 100%;
+
   position: relative;
 }
 
@@ -90,4 +90,17 @@ html, body {
   width: 50%;
   margin-right: auto;
   margin-left: auto;
+}
+
+#search-form{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+
+#about{
+  background-image: url(image-path("wallpaper.jpg"));
+  height: 100%;
+  background-size: 100%;
 }

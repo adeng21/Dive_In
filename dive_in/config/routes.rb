@@ -4,6 +4,7 @@ DiveIn::Application.routes.draw do
   root "home#index"
 
   get 'home' => "home#index"
+  get 'about' => "home#about"
 
   resources :categories, only:[:show] do
     resources :divesites, only:[:index]
