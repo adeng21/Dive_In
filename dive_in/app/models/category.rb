@@ -4,7 +4,4 @@ class Category < ActiveRecord::Base
   has_many :divesite_categories
   has_many :divesites, through: :divesite_categories
   has_many :media
-
-  #need to add maximum number of categories
-  #if i have inclusion, do I need to validate uniqueness too? somone can't make 2 categories of the same name?
 end
