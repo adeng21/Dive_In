@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  background-color: #DFEEF8;
 }
 
 #container {
@@ -121,4 +122,42 @@ html, body {
 
 .category{
   text-align: center;
+}
+
+.site-header{
+  float: left;
+  padding-left: 115px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: inline-block;
+}
+
+.site-header h3{
+  display: inline-block;
+}
+
+.site-attributes{
+  float: right;
+  padding-right: 115px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: inline-block;
+  width: 35%;
+}
+
+.site-attributes li{
+  display: inline-block;
+  padding: 10px;
+  box-shadow: 10px #888888;
+  margin: 10px 10px 10px 0px;
+  border-radius: 20px;
+}
+
+.site-attributes li a{
+  color: #FFFFFF;
+}
+
+.orbit-container{
+  background-color: #2A2C2B;
+  margin-bottom: 20px;
 }

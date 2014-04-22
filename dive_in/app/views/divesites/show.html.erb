@@ -1,23 +1,31 @@
-<div class="show-header">
+<div class="site-header">
   <h1><%= @divesite.name %></h1>
   <%if @divesite.region != ""%>
-  <h3><%= @divesite.region %>
+  <h3><%= @divesite.region %>, <h3>
   <%end%>
-  <h3><%= @divesite.country %><h3>
+  <h3><%= @divesite.country%><h3>
 </div>
 
-<div class="row">
-  <div class="contain-to-grid">
+<div class="site-attributes">
+    <strong> Best Known For:</strong></br>
+      <% @divesite.categories.each do |category|%>
+      <li class="button"><%=link_to category.name, category_path(category)%></li>
+    <%end%></br>
+
+    <strong> Best Month(s) of the Year to Dive:</strong></br>
+      <% @divesite.months.each do |month|%>
+      <li class="button"><%=link_to month.name, month_path(month)%></li>
+    <%end%>
+</div>
+
+  <div class="row">
     <ul class="orbit-image" data-orbit data-options="animation: slide, timer_speed: 1000;">
     <% @divesite.media.each do |p|%>
       <li><%= image_tag p.image.url.to_s %></li>
     <%end%>
     </ul>
-  </div>
-</div>
 
 
-<div class="row">
   <p class="text-justify">
     <strong>Description:</strong></br>
     <%= @divesite.description %>
@@ -44,20 +52,6 @@
         <%= @divesite.visibility %>
       </li>
     <%end%>
-
-    <li class="text-left">
-    <strong> Best Known For:</strong></br>
-      <% @divesite.categories.each do |category|%>
-      <%=link_to category.name, category_path(category)%></br>
-    <%end%>
-    </li>
-
-    <li class="text-right">
-    <strong> Best Month(s) of the Year to Dive:</strong></br>
-      <% @divesite.months.each do |month|%>
-      <%=link_to month.name, month_path(month)%></br>
-    <%end%>
-    </li>
   </ul>
 
   <p class="text-center">
