@@ -57,7 +57,7 @@ html, body {
 
 #footer{
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 35px;
@@ -103,4 +103,18 @@ html, body {
   background-image: url(image-path("wallpaper.jpg"));
   height: 100%;
   background-size: 100%;
+}
+
+#month-button{
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+}
+
+#month-button a{
+  color: #FFFFFF;
+}
+
+#month-button a:hover{
+  opacity: 0.5;
 }
