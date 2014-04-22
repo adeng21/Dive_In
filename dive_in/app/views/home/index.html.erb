@@ -13,15 +13,15 @@ $(function(){
   </script>
 <%end%>
 
-
 <div class="category">
   <h1 class="home-header">Find Divesites By Category</h1><br>
   <ul class="small-block-grid-5">
-    <% @categories.each do |category|%>
-    <li class="text-center"><%= link_to category.name, category_path(category)%></li>
-    <%end%>
+    <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category)%></li>
+    <% end %>
   </ul>
 </div>
+
 
 <div class="month">
   <h1 class="home-header">Find Divesites By Month</h1><br>
