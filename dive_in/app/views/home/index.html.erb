@@ -13,16 +13,6 @@ $(function(){
   </script>
 <%end%>
 
-<div class="category">
-  <h1 class="home-header">Find Divesites By Category</h1><br>
-  <ul class="small-block-grid-5">
-    <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category)%></li>
-    <% end %>
-  </ul>
-</div>
-
-
 <div class="month">
   <h1 class="home-header">Find Divesites By Month</h1><br>
   <ul class="small-block-grid-6">
@@ -32,7 +22,20 @@ $(function(){
   </ul>
 </div>
 
-<div class="list">
+<div id="category">
+  <h1 class="home-header">Find Divesites By Category</h1><br>
+</div>
+
+<div id="category-all">
+  <ul class="small-block-grid-5">
+    <% @categories.each do |category| %>
+    <li class="button" id="category-button"><%= link_to category.name, category_path(category), data: {image: category.image}%></li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div id="list">
   <h1 class="home-header"><%=link_to 'Complete List of the Best Divesites in the World', divesites_path%></h1>
 </div>
 

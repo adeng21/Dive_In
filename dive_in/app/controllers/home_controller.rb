@@ -9,10 +9,8 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.html
       format.json {render json: {
-      markers: [
-        {latLng: [4.1147, 118.6288], name: 'Sipadan', id: 1},
-        {latLng: [7.3722, 113.8417], name: 'Layang Layang', id: 2}
-        ]}}
+      markers: Divesite.map_data
+        }}
     end
   end
 

@@ -36,26 +36,33 @@ class Divesite < ActiveRecord::Base
     end
   end
 
-  def self.search(params)
-    query = "%#{params[:name]}%"
-    month_ids = params[:months].reject(&:empty?).map{|month| month.to_i}
-    category_ids = params[:categories].reject(&:empty?).map{|category| category.to_i}
 
-    divesites = Divesite.all
+  class << self
+    def search(params)
+      query = "%#{params[:name]}%"
+      month_ids = params[:months].reject(&:empty?).map{|month| month.to_i}
+      category_ids = params[:categories].reject(&:empty?).map{|category| category.to_i}
 
-    if !month_ids.empty?
-      divesites = divesites.joins(:months).where("months.id IN (?)", month_ids)
+      divesites = Divesite.all
+
+      if !month_ids.empty?
+        divesites = divesites.joins(:months).where("months.id IN (?)", month_ids)
+      end
+
+      if !category_ids.empty?
+        divesites = divesites.joins(:categories).where("categories.id IN (?)", category_ids)
+      end
+
+      if !params[:name].empty?
+        divesites = divesites.where("divesites.name ILIKE ? OR divesites.country ILIKE ?", query, query)
+      end
+
+      divesites
     end
 
-    if !category_ids.empty?
-      divesites = divesites.joins(:categories).where("categories.id IN (?)", category_ids)
+    def map_data
+      Divesite.all.map{|divesite| {latLng: [divesite.latitude, divesite.longitude], name: divesite.name, id: divesite.id}}
     end
-
-    if !params[:name].empty?
-      divesites = divesites.where("divesites.name ILIKE ? OR divesites.country ILIKE ?", query, query)
-    end
-
-    divesites
   end
 
 end
