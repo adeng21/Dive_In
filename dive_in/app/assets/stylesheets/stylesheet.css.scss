@@ -98,12 +98,16 @@ html, body {
 #about{
   background-image: url(image-path("wallpaper.jpg"));
   height: 100%;
+  width: 100%;
   background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+
 }
 
 #about p{
   margin: 50px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-color: #FFFFFF;
   font-weight: 700;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
@@ -112,20 +116,20 @@ html, body {
 }
 
 #about p a{
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 #about-left-box{
   float: left;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 5%;
+  margin-top: 8%;
   width: 30%;
 }
 
 #about-right-box{
   float: right;
-  margin-top: 450px;
-  margin-right: 20px;
+  margin-top: 25%;
+  margin-right: 5%;
   width: 30%;
 }
 
