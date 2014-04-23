@@ -17,8 +17,8 @@ category_attributes = [{name: 'Wrecks/Artifacts', image: Rails.root.join('/asset
  {name: 'Turtles', image: Rails.root.join('/app/assets/images/categories/Turtles.jpg')},
  {name: 'Schools of Fish', image: Rails.root.join('/app/assets/images/categories/Fish.jpg')}]
 
-category_attributes.each do |attributes|
-  Category.create(attributes)
+category_attributes.each do |category|
+  Category.find_or_create_by(category)
 end
 
 month_attributes = [{name: 'January'}, {name: 'February'},
@@ -27,6 +27,6 @@ month_attributes = [{name: 'January'}, {name: 'February'},
   {name: 'September'}, {name: 'October'}, {name: 'November'},
   {name: 'December'}]
 
-month_attributes.each do |attributes|
-  Month.create(attributes)
+month_attributes.each do |month|
+  Month.find_or_create_by(month)
 end
