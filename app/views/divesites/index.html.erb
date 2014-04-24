@@ -4,9 +4,9 @@
 
 <div id="search-form">
   <%=simple_form_for :q, url: search_divesites_path, method: :post do |f|%>
-     <%= f.input :name, required: false, label: "Search By Site Name Or Country" %>
-     <%= f.input :months, collection: Month.all, as: :check_boxes, required: false, label: "Month" %>
-     <%= f.input :categories, collection: Category.all, as: :check_boxes, required: false, label: "Category" %>
+     <%= f.input :name, required: false, label: "Search By Site Name Or Country", label_html:{class: 'search-input'} %>
+     <%= f.input :months, collection: Month.all, as: :check_boxes, required: false, label: "Month", label_html:{class: 'search-input'} %>
+     <%= f.input :categories, collection: Category.all, as: :check_boxes, required: false, label: "Category", label_html:{class: 'search-input'} %>
     <%= f.submit 'Search', class: 'button small'%>
   <%end%>
 </div>
