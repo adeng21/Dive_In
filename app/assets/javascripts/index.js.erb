@@ -7,4 +7,5 @@ function changeImage(event){
   $imageUrl = $target.attr('data-image');
   url = '/categories' + $imageUrl.slice($imageUrl.lastIndexOf('/'));
   $('#category').css('background-image', 'url("/assets' + url + '")');
+
 }
