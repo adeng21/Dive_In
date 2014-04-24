@@ -21,7 +21,7 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
   scenario 'signed in user submits a valid review' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
-    click_on "Best Divesites in the World"
+    click_on "Search for the Perfect Divesite"
     click_on @divesite.name
     click_on 'See All Reviews'
     click_on 'Submit a Review'
@@ -40,7 +40,7 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
   scenario 'signed in user submits an invalid review' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
-    click_on "Best Divesites in the World"
+    click_on "Search for the Perfect Divesite"
     click_on @divesite.name
     click_on 'See All Reviews'
     click_on 'Submit a Review'
@@ -59,7 +59,7 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
 
   scenario 'a visitor/un-signed in user can not submit a review' do
     visit root_path
-    click_on "Best Divesites in the World"
+    click_on "Search for the Perfect Divesite"
     click_on @divesite.name
 
     expect(page).to_not have_content("Submit a Review")

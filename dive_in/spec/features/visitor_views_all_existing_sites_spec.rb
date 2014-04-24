@@ -10,7 +10,7 @@ feature 'visitor can see a list of all existing divesites', %Q{
     @divesite = FactoryGirl.create(:divesite)
     @divesite2 = FactoryGirl.create(:divesite, name: "Sipadan")
     visit root_path
-    click_on "Best Divesites in the World"
+    click_on "Search for the Perfect Divesite"
   end
 
   scenario 'visitor sees all existing divesites on webpage' do

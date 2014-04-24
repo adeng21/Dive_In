@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe DivesiteMonth do
-  #it{should validate_presence_of(:divesite_id)} need to add on update
-  #it{should validate_presence_of(:month_id)} need to add on update
-  # it{should validate_uniquess_of{:divesite_id}.scoped_to(:month_id)} need to fix this
+  let!(:divesite_month) {FactoryGirl.create(:divesite_month)}
+  it{should validate_uniqueness_of(:divesite_id).scoped_to(:month_id)}
   it{should belong_to(:divesite)}
   it{should belong_to(:month)}
 end
