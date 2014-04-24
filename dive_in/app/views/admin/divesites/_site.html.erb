@@ -4,14 +4,12 @@
   <li>
   <% unless @divesite.media.count == 0 %>
     <%=image_tag medium.image.url(:thumb).to_s %>
-
+    <%unless medium.id == nil %>
     <%= link_to "Delete Image", [:admin, @divesite, medium], method: :delete, data: {confirm: "Are you sure?"}%>
-
+    <%end%>
   <%end%>
   </li>
 <%end%>
-
-<!-- why is this showing two times? -->
 
 <p>
   <strong>Region:</strong>

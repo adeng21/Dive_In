@@ -14,5 +14,4 @@ feature 'user sign out', %Q{
     expect(current_path).to eql(root_path)
     expect(page).to have_content("Signed out successfully")
   end
-
 end

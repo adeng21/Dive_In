@@ -36,5 +36,4 @@ feature 'visitor can see a list of all existing divesites', %Q{
     expect(page).to have_content(review.body)
     expect(page).to have_content(review.rating)
   end
-
 end

@@ -12,30 +12,29 @@ feature 'visitor can search for a divesite based on his preferences', %Q{
 #A list of divesites matching his preferences is shown, with links to the individual divesite page
 #If no divesite is found matching his preferences, an error message is shown
 
-before :each do
-  @divesite = FactoryGirl.create(:divesite)
-  category = FactoryGirl.create(:category)
-  month = FactoryGirl.create(:month)
-  @divesite.categories << category
-  @divesite.months << month
-end
+  before :each do
+    @divesite = FactoryGirl.create(:divesite)
+    category = FactoryGirl.create(:category)
+    month = FactoryGirl.create(:month)
+    @divesite.categories << category
+    @divesite.months << month
+    visit root_path
+    click_on "Search for the Perfect Divesite"
+  end
 
-scenario 'visitor inputs preferences that match an existing divesite' do
-  visit root_path
-  click_on "Search for the Perfect Divesite"
-  select @divesite.categories.first, from: "Category"
-  select @divesite.months.first, from: "Month"
-  select @divesite.country, from: "Country"
-  select "Search for Divesite"
+  scenario 'visitor inputs preferences that match an existing divesite' do
 
-  expect(page).to have_content(@divesite.name)
-  expect(page).to have_content("1 divesite found matching your preferences")
-end
+    fill_in "Search By Site Name Or Country", with: @divesite.country
+    click_on "Search"
+
+    expect(page).to have_content(@divesite.name)
+  end
 
 
-scenario 'visitor inputs preferences that do not match an existing divesite'
+  scenario 'visitor inputs preferences that do not match an existing divesite' do
+    fill_in "Search By Site Name Or Country", with: 'Cool Divesite'
+    click_on "Search"
 
-
-
-
+    expect(page).to_not have_content(@divesite.name)
+  end
 end

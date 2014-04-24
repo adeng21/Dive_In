@@ -45,5 +45,4 @@ feature 'divesites are grouped by categories that they are best known for', %Q{
     expect(page).to have_content(@divesite.name)
     expect(current_path).to eql(category_path(@category))
   end
-
 end

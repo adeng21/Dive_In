@@ -23,6 +23,7 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
     sign_in_as(user)
     click_on "Best Divesites in the World"
     click_on @divesite.name
+    click_on 'See All Reviews'
     click_on 'Submit a Review'
     find(:css, "#review_date_1i").select("2014")
     find(:css, "#review_date_2i").select("May")
@@ -41,6 +42,7 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
     sign_in_as(user)
     click_on "Best Divesites in the World"
     click_on @divesite.name
+    click_on 'See All Reviews'
     click_on 'Submit a Review'
     find(:css, "#review_date_1i").select("2014")
     find(:css, "#review_date_2i").select("May")
@@ -78,7 +80,6 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
 
     expect(@divesite.reviews.count).to eql(0)
   end
-
 end
 
 

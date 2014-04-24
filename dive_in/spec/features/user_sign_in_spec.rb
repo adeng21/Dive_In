@@ -33,7 +33,6 @@ feature 'user sign in', %Q{
 
     expect(page).to have_content("Invalid email or password.")
     expect(page).to_not have_content("Signed in successfully")
-
   end
 
    scenario 'user provides incorrect password' do
@@ -45,8 +44,5 @@ feature 'user sign in', %Q{
 
     expect(page).to have_content("Invalid email or password.")
     expect(page).to_not have_content("Signed in successfully")
-
   end
-
-
 end

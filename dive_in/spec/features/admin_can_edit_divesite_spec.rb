@@ -71,7 +71,5 @@ feature 'add/delete/edit a divesite to the site', %Q{
 
     expect(page).to have_content("Divesite Successfully Updated")
     expect(page).to have_content("San Pedro")
-
   end
-
 end
