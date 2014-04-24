@@ -1,0 +1,39 @@
+<h1 class="home-header"> Where Do You Want To Dive? </h1>
+
+<div id="world-map"></div>
+
+<% content_for :javascripts do %>
+  <script>
+$(function(){
+  makeMap();
+});
+  </script>
+<%end%>
+
+<div class="month">
+  <h1 class="home-header">Find Divesites By Month</h1><br>
+  <ul class="small-block-grid-6">
+    <% @months.each do |month|%>
+    <li class="button" id="month-button"><%= link_to month.name, month_path(month)%></li>
+    <%end%>
+  </ul>
+</div>
+
+<div id="category">
+  <h1 class="home-header">Find Divesites By Category</h1><br>
+</div>
+
+<div id="category-all">
+  <ul class="small-block-grid-5">
+    <% @categories.each do |category| %>
+    <li class="button" id="category-button"><%= link_to category.name, category_path(category), data: {image: category.image}%></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="list">
+  <h1 class="home-header"><%=link_to 'Search for the Perfect Divesite', divesites_path%></h1>
+</div>
+
+
+

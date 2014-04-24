@@ -1,0 +1,13 @@
+<%= render "admin/divesites/site"%>
+
+<strong><li> Add Image</li></strong>
+<%= simple_form_for [:admin, @divesite, @medium], html: {multipart: true} do |f| %>
+  <%= f.file_field :image%>
+  <%= f.button :submit, "Add Image" %>
+<%end%>
+
+
+
+<li><%= link_to "Edit Information", edit_admin_divesite_path(@divesite) %></li>
+<li><%= link_to "Remove Divesite", admin_divesite_path(@divesite), method: :delete, data: {confirm: "Are you sure?"}%></li>
+<li><%= link_to "Back to Divesites List", admin_divesites_path %></li>

@@ -1,0 +1,22 @@
+<div class="show-table">
+  <table>
+    <tr>
+      <th> Divesite </th>
+      <th> Country <th>
+      <th> Overall Rating</th>
+      <th> Reviews </th>
+    </tr>
+
+
+    <% @divesites.each do |site|%>
+    <tr>
+      <td><%= link_to site.name, divesite_path(site) %></td>
+      <td><%= site.country %></td>
+      <td></td>
+      <td><%= site.overall_rating%></td>
+      <td><%= link_to "Reviews", divesite_reviews_path(site)%></td>
+    </tr>
+    <%end%>
+
+  </table>
+</div>

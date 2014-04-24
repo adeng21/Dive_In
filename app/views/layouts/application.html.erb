@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+
+
+    <%= render 'layouts/messages'%>
+    <div class="contain-to-grid">
+      <nav class="top-bar height=30px">
+        <ul>
+          <li class="toggle-topbar"></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <%if user_signed_in?%>
+              <li><%= link_to 'Sign out', destroy_user_session_path,  method: :delete %><li>
+              <%if current_user.is_admin? %>
+                <li><%= link_to 'Admin Section', admin_homes_path %></li>
+              <% end %>
+            <% else %>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
+      <%= yield :javascripts %>
+
+
+    <div id="footer">
+      <ul class="small-block-grid-3">
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><a href="https://github.com/adeng21/Dive_In">Code</a></li>
+      </ul>
+    </div>
+
+  </body>
+</html>
