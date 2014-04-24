@@ -2,14 +2,6 @@
 
 <div id="world-map"></div>
 
-<% content_for :javascripts do %>
-  <script>
-$(function(){
-  makeMap();
-});
-  </script>
-<%end%>
-
 <div class="month">
   <h1 class="home-header">Find Divesites By Month</h1><br>
   <ul class="small-block-grid-6">
@@ -35,5 +27,12 @@ $(function(){
   <h1 class="home-header"><%=link_to 'Search for the Perfect Divesite', divesites_path%></h1>
 </div>
 
-
+<% content_for :javascripts do %>
+  <script>
+$(function(){
+  makeMap();
+  imageHover();
+});
+  </script>
+<%end%>
 

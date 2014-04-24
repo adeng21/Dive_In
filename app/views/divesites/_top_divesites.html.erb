@@ -7,7 +7,6 @@
       <th> Reviews </th>
     </tr>
 
-
     <% @divesites.each do |site|%>
     <tr>
       <td><%= link_to site.name, divesite_path(site) %></td>
@@ -17,6 +16,5 @@
       <td><%= link_to "Reviews", divesite_reviews_path(site)%></td>
     </tr>
     <%end%>
-
   </table>
 </div>

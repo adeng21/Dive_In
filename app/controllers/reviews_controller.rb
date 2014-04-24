@@ -21,9 +21,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-
-
-
   protected
 
   def find_divesite
@@ -33,6 +30,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :body, :rating, :date, :user_id, :divesite_id)
   end
-
-
 end

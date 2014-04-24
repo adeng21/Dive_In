@@ -37,11 +37,7 @@
       </nav>
     </div>
 
-
-      <%= yield %>
-      <%= javascript_include_tag "application" %>
-      <%= yield :javascripts %>
-
+    <%= yield %>
 
     <div id="footer">
       <ul class="small-block-grid-3">
@@ -50,6 +46,8 @@
         <li><a href="https://github.com/adeng21/Dive_In">Code</a></li>
       </ul>
     </div>
+    <%= javascript_include_tag "application" %>
+    <%= yield :javascripts %>
     <%= yield :extra_footer %>
 
   </body>

@@ -36,7 +36,6 @@ class Divesite < ActiveRecord::Base
     end
   end
 
-
   class << self
     def search(params)
       query = "%#{params[:name]}%"

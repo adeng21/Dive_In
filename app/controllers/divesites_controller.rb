@@ -1,6 +1,5 @@
 class DivesitesController < ApplicationController
 
-
   def index
     if params[:q]
       @divesites = Divesite.search(params[:q])
@@ -14,6 +13,5 @@ class DivesitesController < ApplicationController
     @divesite = Divesite.find(params[:id])
     @divesite_images = @divesite.media.all
   end
-
 end
 

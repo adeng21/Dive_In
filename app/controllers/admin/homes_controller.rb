@@ -4,7 +4,5 @@ module Admin
     def index
 
     end
-
-
   end
 end
