@@ -18,9 +18,9 @@ category_attributes = [{name: 'Wrecks/Artifacts', image: 'categories/Wrecks.jpg'
  {name: 'Schools of Fish', image: 'categories/Fish.jpg'}]
 
 category_attributes.each do |attributes|
-  Category.find_or_create_by!({name: attributes[:name]}) do |category|
-    category.image = attributes[:image]
-  end
+  category = Category.find_or_create_by!({name: attributes[:name]})
+  category.image = attributes[:image]
+  category.save!
 end
 
 month_attributes = [{name: 'January'}, {name: 'February'},

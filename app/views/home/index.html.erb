@@ -12,13 +12,17 @@
 </div>
 
 <div id="category">
+  <% @categories.each do |category| %>
+    <div style="display:none; background-image: url('<%= asset_path(category.image) %>')" class="category-image" data-category="<%= category.name %>">
+    </div>
+  <% end %>
   <h1 class="home-header">Find Divesites By Category</h1><br>
 </div>
 
 <div id="category-all">
   <ul class="small-block-grid-5">
     <% @categories.each do |category| %>
-    <li class="button" id="category-button"><%= link_to category.name, category_path(category), data: {image: asset_path(category.image)}%></li>
+    <li class="button" id="category-button"><%= link_to category.name, category_path(category), class: category.name %></li>
     <% end %>
   </ul>
 </div>
@@ -29,17 +33,16 @@
 
 <% content_for :javascripts do %>
   <script>
-$(function(){
-  makeMap();
-  imageHover();
-  var images = [];
-  var li = $('#category-all li');
-  [].forEach.call(li, function(li){
-    var image = new Image();
-    image.src = $(li).children().attr("data-image");
-    images.push(image);
-  });
-});
+    function changeImage(event){
+      var $target = $(event.target);
+      $("#category div").hide();
+      $("#category div[data-category='" + $target.attr("class") + "']").show();
+    }
+
+    $(function(){
+      makeMap();
+      $('#category-all a').mouseover(changeImage);
+    });
   </script>
 <%end%>
 
