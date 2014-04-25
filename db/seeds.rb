@@ -6,19 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-category_attributes = [{name: 'Wrecks/Artifacts', image: '/assets/images/categories/Wrecks.jpg'},
- {name: 'Caves', image: '/assets/images/categories/Caves.jpg'},
- {name: 'Drift', image: '/assets/images/categories/Drift.jpg'},
- {name: 'Walls', image: '/assets/images/categories/Walls.jpg'},
- {name: 'Whales & Sharks', image: '/assets/images/categories/Sharks.jpg'},
- {name: 'Macro/Corals', image: '/assets/images/categories/Corals.jpg'},
- {name: 'Manta Rays', image: '/assets/images/categories/Manta.jpg'},
- {name: 'Night', image: '/assets/images/categories/Night.jpg'},
- {name: 'Turtles', image: '/assets/images/categories/Turtles.jpg'},
- {name: 'Schools of Fish', image: '/assets/images/categories/Fish.jpg'}]
+category_attributes = [{name: 'Wrecks/Artifacts', image: 'categories/Wrecks.jpg'},
+ {name: 'Caves', image: 'categories/Caves.jpg'},
+ {name: 'Drift', image: 'categories/Drift.jpg'},
+ {name: 'Walls', image: 'categories/Walls.jpg'},
+ {name: 'Whales & Sharks', image: 'categories/Sharks.jpg'},
+ {name: 'Macro/Corals', image: 'categories/Corals.jpg'},
+ {name: 'Manta Rays', image: 'categories/Manta.jpg'},
+ {name: 'Night', image: 'categories/Night.jpg'},
+ {name: 'Turtles', image: 'categories/Turtles.jpg'},
+ {name: 'Schools of Fish', image: 'categories/Fish.jpg'}]
 
-category_attributes.each do |category|
-  Category.find_or_create_by(category)
+category_attributes.each do |attributes|
+  Category.find_or_create_by!({name: attributes[:name]}) do |category|
+    category.image = attributes[:image]
+  end
 end
 
 month_attributes = [{name: 'January'}, {name: 'February'},
@@ -28,5 +30,5 @@ month_attributes = [{name: 'January'}, {name: 'February'},
   {name: 'December'}]
 
 month_attributes.each do |month|
-  Month.find_or_create_by(month)
+  Month.find_or_create_by!(month)
 end
