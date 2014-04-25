@@ -268,6 +268,15 @@ html, body {
   padding-bottom: 20px;
 }
 
+#total-list table{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#total-list tr td{
+  text-align: center;
+}
+
 #category {
   position: relative;
 }
