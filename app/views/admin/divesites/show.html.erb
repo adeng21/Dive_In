@@ -1,13 +1,83 @@
-<%= render "admin/divesites/site"%>
+<div class="admin-show">
+   <h1 class="show-header"><%= @divesite.name %></h1>
 
-<strong><li> Add Image</li></strong>
-<%= simple_form_for [:admin, @divesite, @medium], html: {multipart: true} do |f| %>
-  <%= f.file_field :image%>
-  <%= f.button :submit, "Add Image" %>
-<%end%>
+  <% @divesite.media.each do |medium|%>
+    <li id="admin-media">
+    <% unless @divesite.media.count == 0 %>
+      <%=image_tag medium.image.url(:thumb).to_s %>
+      <%unless medium.id == nil %>
+      <%= link_to "Delete Image", [:admin, @divesite, medium], method: :delete, data: {confirm: "Are you sure?"}%>
+      <%end%>
+    <%end%>
+    </li>
+  <%end%>
 
+  <p>
+    <strong>Region:</strong>
+    <%= @divesite.region %>
+  </p>
 
+  <p>
+    <strong>Country:</strong>
+    <%= @divesite.country %>
+  </p>
 
-<li><%= link_to "Edit Information", edit_admin_divesite_path(@divesite) %></li>
-<li><%= link_to "Remove Divesite", admin_divesite_path(@divesite), method: :delete, data: {confirm: "Are you sure?"}%></li>
-<li><%= link_to "Back to Divesites List", admin_divesites_path %></li>
+  <p>
+    <strong>Overall Rating:</strong>
+    <%= @divesite.rating %>
+  </p>
+
+  <p>
+    <strong>Latitude:</strong>
+    <%= @divesite.latitude %>
+  </p>
+
+  <p>
+    <strong>Longitude:</strong>
+    <%= @divesite.longitude %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @divesite.description %>
+  </p>
+
+  <p>
+    <strong>Surrounding Area:</strong>
+    <%= @divesite.surrounding_area %>
+  </p>
+
+  <p>
+    <strong>Average Water Temperature:</strong>
+    <%= @divesite.water_temperature %>
+  </p>
+
+  <p>
+    <strong>Average Visibility:</strong>
+    <%= @divesite.visibility %>
+  </p>
+
+  <p>
+    <strong> Best Known For:</strong>
+    <% @divesite.categories.each do |category|%>
+    <%=link_to category.name, category_path(category)%><br>
+    <%end%>
+  </p>
+
+  <p>
+    <strong> Best Month(s) of the Year to Dive:</strong>
+    <% @divesite.months.each do |month|%>
+    <%=link_to month.name, month_path(month)%><br>
+    <%end%>
+  </p>
+
+  <strong><li> Add Image</li></strong>
+  <%= simple_form_for [:admin, @divesite, @medium], html: {multipart: true} do |f| %>
+    <%= f.file_field :image%>
+    <%= f.button :submit, "Add Image" %>
+  <%end%>
+
+  <li><%= link_to "Edit Information", edit_admin_divesite_path(@divesite) %></li>
+  <li><%= link_to "Remove Divesite", admin_divesite_path(@divesite), method: :delete, data: {confirm: "Are you sure?"}%></li>
+  <li><%= link_to "Back to Divesites List", admin_divesites_path %></li>
+</div>

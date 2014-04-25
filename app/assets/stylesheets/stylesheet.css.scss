@@ -274,3 +274,31 @@ html, body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
+#admin-home{
+  margin: auto;
+  padding: 50px;
+}
+
+#admin-home li{
+  padding: 20px;
+}
+
+.admin-show{
+  padding: 40px;
+}
+
+.admin-show li {
+  list-style-type: none;
+}
+
+#admin-media {
+  display: inline-block;
+  padding: 20px;
+}
+
+.admin-form{
+  margin: auto;
+  width: 70%;
+  padding: 40px;
+}
