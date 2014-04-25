@@ -1,28 +1,18 @@
-== README
+== Dive In
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Want to find a great place to dive but don't know where to go?
 
-Things you may want to cover:
+Only have time to dive in January but not sure if that's the right time?
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dying to see a whale shark but have no idea where to see one?
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=====Dive In is an online resource that helps you find the perfect divesite based on your personal preferences. 
+
+Find the world's best divesites based on:
+
+* Location
+* Time of the Year
+* Types of Dives
+
+www.dive-in.herokuapp.com
