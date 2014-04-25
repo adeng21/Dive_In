@@ -6,16 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-category_attributes = [{name: 'Wrecks/Artifacts', image: Rails.root.to_s + '/assets/images/categories/Wrecks.jpg'},
- {name: 'Caves', image: Rails.root.to_s + '/app/assets/images/categories/Caves.jpg'},
- {name: 'Drift', image: Rails.root.to_s + '/app/assets/images/categories/Drift.jpg'},
- {name: 'Walls', image: Rails.root.to_s + '/app/assets/images/categories/Walls.jpg'},
- {name: 'Whales & Sharks', image: Rails.root.to_s + '/app/assets/images/categories/Sharks.jpg'},
- {name: 'Macro/Corals', image: Rails.root.to_s + '/app/assets/images/categories/Corals.jpg'},
- {name: 'Manta Rays', image:Rails.root.to_s + '/app/assets/images/categories/Manta.jpg'},
- {name: 'Night', image: Rails.root.to_s + '/app/assets/images/categories/Night.jpg'},
- {name: 'Turtles', image: Rails.root.to_s + '/app/assets/images/categories/Turtles.jpg'},
- {name: 'Schools of Fish', image: Rails.root.to_s + '/app/assets/images/categories/Fish.jpg'}]
+category_attributes = [{name: 'Wrecks/Artifacts', image: '/assets/images/categories/Wrecks.jpg'},
+ {name: 'Caves', image: '/assets/images/categories/Caves.jpg'},
+ {name: 'Drift', image: '/assets/images/categories/Drift.jpg'},
+ {name: 'Walls', image: '/assets/images/categories/Walls.jpg'},
+ {name: 'Whales & Sharks', image: '/assets/images/categories/Sharks.jpg'},
+ {name: 'Macro/Corals', image: '/assets/images/categories/Corals.jpg'},
+ {name: 'Manta Rays', image: '/assets/images/categories/Manta.jpg'},
+ {name: 'Night', image: '/assets/images/categories/Night.jpg'},
+ {name: 'Turtles', image: '/assets/images/categories/Turtles.jpg'},
+ {name: 'Schools of Fish', image: '/assets/images/categories/Fish.jpg'}]
 
 category_attributes.each do |category|
   Category.find_or_create_by(category)

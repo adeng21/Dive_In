@@ -101,8 +101,8 @@ html, body {
 
 .search-input {
   text-align: center;
-  padding: 10px;
-  font-weight: 10;
+  padding: 15px;
+  font-weight: bold;
 }
 
 #about{
@@ -235,3 +235,30 @@ html, body {
   margin-bottom: 50px;
 }
 
+.devise-form{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.devise-header{
+  padding: 15px;
+  text-align: center;
+}
+
+.devise-links{
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-actions{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+#total-list{
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
