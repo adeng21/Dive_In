@@ -15,4 +15,4 @@ Find the world's best divesites based on:
 * Time of the Year
 * Types of Dives
 
-dive-in.herokuapp.com
+Find it at: dive-in.herokuapp.com
