@@ -30,7 +30,6 @@ feature 'visitor can search for a divesite based on his preferences', %Q{
     expect(page).to have_content(@divesite.name)
   end
 
-
   scenario 'visitor inputs preferences that do not match an existing divesite' do
     fill_in "Search By Site Name Or Country", with: 'Cool Divesite'
     click_on "Search"

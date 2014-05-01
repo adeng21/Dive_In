@@ -1,5 +1,4 @@
 var mapObject;
-var data;
 var markers;
 
 function makeMap(){
@@ -24,18 +23,14 @@ function makeMap(){
         'fill-opacity': 0.5
       }
      },
-
     onRegionClick: function(event, code){
      mapZoom(event, code);
      addMarkers();
     },
-
     onMarkerClick: function(event, code){
       divesiteClick(code);
     }
-
   });
-
    mapObject = $('#world-map').vectorMap('get', 'mapObject');
    markers = response.markers;
 
@@ -43,8 +38,6 @@ function makeMap(){
     mapObject.removeAllMarkers();
     mapObject.reset();
   });
-
-
   });
 }
 

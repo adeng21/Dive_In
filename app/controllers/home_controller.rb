@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
 
-
   def index
     @categories = Category.all
     @months = Month.all
@@ -15,6 +14,5 @@ class HomeController < ApplicationController
   end
 
   def about
-
   end
 end

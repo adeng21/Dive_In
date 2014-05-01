@@ -1,26 +1,24 @@
 <div class="row">
-<div class="site-header">
-  <h1><%= @divesite.name %></h1>
-  <%if @divesite.region != ""%>
-  <h3><%= @divesite.region %> <h3>
-  <%end%>
-  <h3>, <%= @divesite.country%><h3>
-</div>
+  <div class="site-header">
+    <h1><%= @divesite.name %></h1>
+    <%if @divesite.region != ""%>
+    <h3><%= @divesite.region %> <h3>
+    <%end%>
+    <h3>, <%= @divesite.country%><h3>
+  </div>
 
-<div class="site-attributes">
-  <strong> Best Known For:</strong></br>
-    <% @divesite.categories.each do |category|%>
-    <li class="button"><%=link_to category.name, category_path(category)%></li>
-  <%end%></br>
+  <div class="site-attributes">
+    <strong> Best Known For:</strong></br>
+      <% @divesite.categories.each do |category|%>
+      <li class="button"><%=link_to category.name, category_path(category)%></li>
+    <%end%></br>
 
-  <strong> Best Month(s) of the Year to Dive:</strong></br>
-    <% @divesite.months.each do |month|%>
-    <li class="button"><%=link_to month.name, month_path(month)%></li>
-  <%end%>
-</div>
-</div>
+    <strong> Best Month(s) of the Year to Dive:</strong></br>
+      <% @divesite.months.each do |month|%>
+      <li class="button"><%=link_to month.name, month_path(month)%></li>
+    <%end%>
+  </div>
 
-<div class="row">
   <ul class="orbit-image" data-orbit data-options="animation: slide, timer_speed: 1000;">
     <% @divesite.media.each do |p|%>
     <li><%= image_tag p.image.url.to_s %></li>

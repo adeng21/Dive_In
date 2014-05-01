@@ -3,7 +3,7 @@ class DivesitesController < ApplicationController
   def index
     if params[:q]
       @divesites = Divesite.search(params[:q])
-      @divesites.includes([:categories, :months]) if @divesites
+      @divesites.includes([:categories, :months])
     else
       @divesites = Divesite.includes([:categories, :months])
     end

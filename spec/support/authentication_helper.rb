@@ -9,5 +9,4 @@ module AuthenticationHelper
       click_on 'Sign in'
     end
   end
-
 end

@@ -33,6 +33,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rmagick'
 gem "fog", "~> 1.3.1"
+gem 'kaminari'
 
 
 group :doc do

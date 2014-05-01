@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :find_divesite, only: [:index, :new, :create]
+  before_action :find_divesite
 
   def index
     @reviews = @divesite.reviews

@@ -24,11 +24,9 @@ module Admin
         notice: "Image Successfully Removed!"
     end
 
-
     protected
 
     def media_params
-
       params.require(:medium).permit(:image, :divesite_id, :category_id)
     end
   end

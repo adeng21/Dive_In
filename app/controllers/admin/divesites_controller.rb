@@ -19,7 +19,7 @@ module Admin
     end
 
     def index
-      @divesites = Divesite.all
+      @divesites = Divesite.order(:name).page(params[:page]).per(1)
     end
 
     def show
@@ -53,7 +53,6 @@ module Admin
         redirect_to admin_divesites_path,
         notice: "Divesite(s) Successfully Deleted"
     end
-
 
     protected
 

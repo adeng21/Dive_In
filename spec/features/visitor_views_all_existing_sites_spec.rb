@@ -18,7 +18,6 @@ feature 'visitor can see a list of all existing divesites', %Q{
     expect(current_path).to eql(divesites_path)
   end
 
-
   scenario 'visitor can click on divesite from homepage and see the details in the individual divesite page' do
      click_on "#{@divesite.name}"
 

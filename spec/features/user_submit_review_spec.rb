@@ -56,7 +56,6 @@ feature 'a signed in user can submit a review for an existing divesite', %Q{
     expect(@divesite.reviews.count).to eql(0)
   end
 
-
   scenario 'a visitor/un-signed in user can not submit a review' do
     visit root_path
     click_on "Search for the Perfect Divesite"

@@ -1,5 +1,4 @@
 class Divesite < ActiveRecord::Base
-
   validates :name, presence: true
   validates :country, presence: true
   validates :description, presence: true
@@ -63,5 +62,4 @@ class Divesite < ActiveRecord::Base
       Divesite.all.map{|divesite| {latLng: [divesite.latitude, divesite.longitude], name: divesite.name, id: divesite.id}}
     end
   end
-
 end
